@@ -1,0 +1,39 @@
+# --table-start--
+dataClass=fr.guddy.androidstarter.persistence.entities.AbstractOrmLiteEntity
+tableName=abstractormliteentity
+# --table-fields-start--
+# --field-start--
+fieldName=_id
+columnName=_id
+generatedId=true
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=fr.guddy.androidstarter.persistence.entities.RepoEntity
+tableName=REPO
+# --table-fields-start--
+# --field-start--
+fieldName=id
+# --field-end--
+# --field-start--
+fieldName=name
+# --field-end--
+# --field-start--
+fieldName=description
+# --field-end--
+# --field-start--
+fieldName=url
+# --field-end--
+# --field-start--
+fieldName=avatarUrl
+# --field-end--
+# --field-start--
+fieldName=_id
+columnName=_id
+generatedId=true
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
