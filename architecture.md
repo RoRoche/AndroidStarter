@@ -60,15 +60,15 @@ final GitHubService loService = loRetrofit.create(GitHubService.class);
 return loService;
 ```
 
-Another library I like to use is [Merlin](https://github.com/novoda/merlin). I see it as an utility tool to be aware of network connectivity state and changes. It provides a fluent API, simple to set up inside an Android project.
+Another library I like to use is [Merlin](https://github.com/novoda/merlin). I see it as an utility tool to be aware of the network connectivity state and changes. It provides a fluent API, simple to set up inside an Android project.
 
-Personally, to get network connectivity state, I use its `MerlinsBeard` class that I can initialize like:
+Personally, to get the network connectivity state, I use its `MerlinsBeard` class that I can initialize like:
 
 ```java
 final MerlinsBeard merlinsBeard = MerlinsBeard.from(context);
 ```
 
-And the a simple call to:
+And then simple call to:
 
 ```java
 merlinsBeard.isConnected()
@@ -80,7 +80,7 @@ tells me if the network is reachable or not.
 
 So, now we have our data coming from our remote server. It's time to describe how to process it in order to get our POJOs. A common format to interchange data is JSON. No surprise at this point. And if you are familiar with the Java world, no more surprise when I tell you I'm going to set up a JSON parser using [Jackson](https://github.com/FasterXML/jackson)! Obviously, no need to explain that Jackson is still one of the most popular libraries in this subject.
 
-Nevertheless, I would like to add some criteria that make me love Jackson:
+Nevertheless, I would like to add some criterion that make me love Jackson:
 First, I'm very satisfied with its fluent annotation API. And it's pretty helpful to be able to get and store properties that are not declared through the `@JsonProperty` annotation. Actually, here is some code to illustrate my words:
 
 ```java
@@ -103,17 +103,17 @@ public class Example {
 
 But how useful could it be? 
 
-Just think of a unusual behavior: I get a `NullPointerException` (for example) while processing my data. 
+Just think of an unusual behavior: I get a `NullPointerException` (for example) while processing my data. 
 
 But why? Simply because the JSON key has changed server-side.
 
-But how could I see it if the API team did not let me know... A dive to the debugger and we can see that the `mAdditionalProperties` contains our expected value, but with a different key. And here we are! No wasting time any longer to debug this point.
+But how could I see it if the API team did not let me know... A dive to the debugger and we can see that the `mAdditionalProperties` contains our expected value, but with a different key. And here we are! No more time wasted to debug this point.
 
 #### Combination with Retrofit
 
 Cleverly, a dedicated Retrofit converter is available on GitHub: <https://github.com/square/retrofit/tree/master/retrofit-converters/jackson>.
 
-We can simply add it to our `build.gradle` as follow:
+We can simply add it to our `build.gradle` as follows:
 
 ```groovy
 compile 'com.squareup.retrofit2:converter-jackson:{{last_version}}'
@@ -146,18 +146,18 @@ They also provide the corresponding [converter to configure Retrofit](https://gi
 
 #### Another attractive alternative: LoganSquare
 
-A powerful library is named [LoganSquare](https://github.com/bluelinelabs/LoganSquare).
+A powerful library named [LoganSquare](https://github.com/bluelinelabs/LoganSquare).
 It relies on compile-time annotation processing to generate parsing/serializing code.
 
-We can find converters written to make it works in combination with Retrofit:
+We can find converters written to make it work in combination with Retrofit:
 
 * <https://github.com/aurae/retrofit-logansquare> (officially referenced by the Retrofit's wiki pages)
 
 ## Communication between components and passing data
 
-A frequently asked question in Android ecosystem is:
+A frequently asked question in the Android ecosystem is:
 
-* how to make components communicate together, and optionally passing parameters?
+* how to make components communicate together, and optionally pass parameters?
 
 A common response is to set up an event bus.
 [A lot of libraries provide solution to this problem](http://android-arsenal.com/tag/32), among which:
@@ -186,7 +186,7 @@ But, the real point under the hood is the event inheritance. Indeed, if I define
 * define a method to be notified of a `EventQueryBDidFinish` publication ;
 * and, the most interesting for me, define a method to be notified of a `AbstractEventQueryDidFinish` publication.
 
-Actually, it can be pretty useful to have a global interceptor that is notified when a query finished, with no matters of its strong type.
+Actually, it can be pretty useful to have a global interceptor that is notified when a query finished, with no matter how strong its type is.
 
 For example, if you maintain a list of pending queries in an object (a synchronization engine for example), you can register this one to be notified of every `AbstractEventQueryDidFinish`.
 So it becomes possible to refresh your pending queries list every time a request ends, and optionally store its result (failure or success).
@@ -290,14 +290,14 @@ So, we can easily list some jobs that must not be done on the main thread:
 * read a local file
 * etc.
 
-Fortunately, many resources comes to the rescue: classes from the official Android SDK, blog posts, libraries and so on.
+Fortunately, many resources come to the rescue: classes from the official Android SDK, blog posts, libraries and so on.
 
-But one of the most useful resource I met is the "Android REST client applications" session from Google I/O 2010 by Virgil Dobjanschi:
+But one of the most useful resources I met is the "Android REST client applications" session from Google I/O 2010 by Virgil Dobjanschi:
 
 * <https://www.youtube.com/watch?v=xHXn3Kg2IQE>
 * <https://dl.google.com/googleio/2010/android-developing-RESTful-android-apps.pdf>
 
-And I totally joined to his advices that are:
+And I totally agree with his advice that is:
 
 * use [`Service`](http://developer.android.com/reference/android/app/Service.html) class from the Android SDK
 * set up a `ServiceHelper` class to facade the call to network requests
@@ -324,12 +324,12 @@ To set it up, we need to follow two steps.
 
 #### Job Manager Configuration
 
-The `JobManager` is a key concept from this library. It's responsible of enqueuing and performing jobs. It's designed to be as flexible as possible to allow developer to build his own configuration.
+The `JobManager` is a key concept from this library. It's responsible for queuing up and performing jobs. It's designed to be as flexible as possible to allow the developer to build his own configuration.
 
-It become possible to tell:
+It becomes possible to tell:
 
 * how many threads can consume jobs at the same time
-* how to persist jobs that can not be performed at the moment
+* how to persist jobs that cannot be performed at the moment
 * how to retrieve network connectivity status
 * which logger to use
 
@@ -354,7 +354,7 @@ A way I love with this library, is to consider each network request as a specifi
 
 * its priority
 * if it requires network to be performed
-* if it should persists if it can not be performed
+* if it should persist if it cannot be performed
 * if it should run after some delay
 * its retry policy
 
@@ -362,7 +362,7 @@ It's also possible to group jobs so that they can be executed sequentially. It's
 
 All necessary information about job configuration can be found on this page: <https://github.com/yigit/android-priority-jobqueue/wiki/Job-Configuration>
 
-The persistence engine of this library is very powerful. For example, if network is unreachable, jobs are serialized and persisted on the device. Once the network becomes reachable, the `JobManager` dequeues the persisted jobs and performs them as usual.
+The persistence engine of this library is very powerful. For example, if the network is unreachable, jobs are serialized and persist on the device. Once the network becomes reachable, the `JobManager` fetches the persisting jobs and performs them as usual.
 
 I identified some redundant code when writing jobs to perform network requests. That's why I wrote an abstract class that every query should extend:
 
@@ -451,7 +451,7 @@ We can see that there are three methods to implement:
 * `postEventQueryFinished`: the way to notify observers of the job termination (success or failure)
 * `postEventQueryFinishedNoNetwork`: the way to notify observers of the job termination because the network is unreachable
 
-The two last methods are often based on the bus concept I talked previously.
+The two last methods are often based on the bus concept I talked about previously.
 Considering I'm using Otto to communicate between components, here comes the abstract event I defined:
 
 ```java
@@ -476,11 +476,11 @@ public abstract class AbstractEventQueryDidFinish<QueryType extends AbstractQuer
 }
 ```
 
-It's designed to embed 
+It's designed to embed:
 
 * the query that just finished
 * the termination status
-* and optionally the type of error and `Throwable` objet that occurred
+* and, optionally, the type of error and `Throwable` objet that occurred
 
 Each query I defined could publish a specific event, subclassing `AbstractEventQueryDidFinish`, to notify about its termination with status.
 
@@ -537,7 +537,7 @@ public class QueryGetRepos extends AbstractQuery {
 }
 ```
 
-And now, with a simple proxy class I call `QueryFactory` (it's very closed to the `ServiceHelper` mentioned by Virgil Dobjanschi), I can start easily every request with a strong protocol to conform to:
+And now, with a simple proxy class I call `QueryFactory` (it's very close to the `ServiceHelper` mentioned by Virgil Dobjanschi), I can easily start every request with a strong protocol to conform to:
 
 ```java
 public class QueryFactory {
@@ -609,7 +609,7 @@ And here we have a consistent structure to manage network queries in a proper wa
 
 ### RxJava
 
-Another approach is to adopt [RxJava](https://github.com/ReactiveX/RxJava). It allows developer to build asynchronous programs with an event-based mechanism using `Observable`.
+Another approach is to adopt [RxJava](https://github.com/ReactiveX/RxJava). It allows developers to build asynchronous programs with an event-based mechanism using `Observable`.
 
 ReactiveX provides [Android specific bindings](https://github.com/ReactiveX/RxAndroid).
 
@@ -619,7 +619,7 @@ It can be pretty useful. We will see how I use it to perform CRUD operations on 
 
 ### The ORM way
 
-In software development, the Object-relational mapping (ORM) is a widely-used technique. Different libraries exist for the various languages (Doctrine for PHP or Hibernate for Java for example).
+In software development, the Object-Relational Mapping (ORM) is a widely used technique. Different libraries exist for the various languages (Doctrine for PHP or Hibernate for Java for example).
 
 The motivation to use an ORM is to easily set up and configure a SQLite database on Android.
 It's also very powerful when setting up relationships. At least, it provides a very fluent API to execute CRUD operations on the database.
@@ -666,13 +666,13 @@ public class RepoEntity extends AbstractOrmLiteEntity {
 }
 ```
 
-Now let's have a look on the DAO. This design pattern aims at accessing to the concrete data through an abstract interface. It describes and implements specific data operations to conform to the single responsibility principle.
+Now let's have a look at the DAO. This design pattern aims at accessing to the concrete data through an abstract interface. It describes and implements specific data operations to conform to the single responsibility principle.
 
 Fortunately, OrmLite provides the [Dao interface](http://ormlite.com/javadoc/ormlite-core/com/j256/ormlite/dao/Dao.html) and its implementation: [BaseDaoImpl](http://ormlite.com/javadoc/ormlite-core/com/j256/ormlite/dao/BaseDaoImpl.html). All the traditional CRUD operations I need are available.
 
-Unfortunately, there are executing synchronously. That's where RxJava comes wisely to perform those operations asynchronously.
+Unfortunately, there are executed synchronously. That's where RxJava comes in handy to perform those operations asynchronously.
 
-So I rewrote all the available methods in a RxJava-way.
+So I rewrote all the available methods in a RxJava way.
 
 So I created an interface as follows:
 
@@ -765,9 +765,9 @@ public class DatabaseHelperAndroidStarter extends OrmLiteSqliteOpenHelper {
 }
 ```
 
-We can see that ORMLite provides the utility class [`TableUtils`](http://ormlite.com/javadoc/ormlite-core/com/j256/ormlite/table/TableUtils.html), where helpful methods come to create or drop a table according to its mapped Java class.
+We can see that ORMLite provides the utility class [`TableUtils`](http://ormlite.com/javadoc/ormlite-core/com/j256/ormlite/table/TableUtils.html), where helpful methods can create or drop a table according to its mapped Java class.
 
-At this time, don't pay attention to the `@SneakyThrows`. It comes from Lombok to be used to throw checked exceptions. Just remind that it allows us not to write the `try/catch` statement by ourself, the annotation processor writes it for us.
+At this time, don't pay attention to the `@SneakyThrows`. It comes from Lombok and is used to throw checked exceptions. Just remember that it allows us not to write the `try/catch` statement by ourselves, the annotation processor writes it for us.
 
 Now, it becomes very easy to deal with data. We just need a `DatabaseHelperAndroidStarter`:
 
@@ -807,9 +807,9 @@ private void rxGetRepos() {
 }
 ```
 
-But a question remains: how to get repo from network, parse it and store it in our database?
+But a question remains: how to get a repo from the network, parse it and store it in our database?
 
-A simple response could be to gather all annotations in the same Java class. But we obtain a class with all the responsibilities of both network and database configuration.
+A simple response could be to gather all annotations in the same Java class. But we obtain a class with the responsibilities of both the network and the database configuration.
 
 My goal is to keep a class to interact with the network, `DTORepo` ; and one to map the database, `RepoEntity`. Basically, they have common fields, with the same names. So I need a tool to convert DTO to Entity. That's where [Android Transformer](https://github.com/txusballesteros/android-transformer) comes to the rescue:
 
@@ -856,7 +856,7 @@ final RepoEntity loRepo = loTransformerRepo.transform(loDTORepo, RepoEntity.clas
 As a conclusion: 
 
 * we have a simple way to define a new class mapping a SQLite table
-* we conforms to the single responsibility principle by providing a dedicated implementation of `AbstractBaseDAOImpl`
+* we conform to the single responsibility principle by providing a dedicated implementation of `AbstractBaseDAOImpl`
 * we access to CRUD operations, in an asynchronous way, thanks to RxJava 
 
 Note that we can boost the DAOs creations by generating an ORMLite configuration file at compile-time thanks to the ["ormgap" plugin](https://github.com/stephanenicolas/ormlite-android-gradle-plugin).
@@ -865,14 +865,14 @@ Note that we can boost the DAOs creations by generating an ORMLite configuration
 
 ### The `ContentProvider` way
 
-A widely used approach is to set up a [`ContentProvider`](http://developer.android.com/reference/android/content/ContentProvider.html). Personally, I came to it thanks to the [_iosched_ application open sourced by Google](https://github.com/google/iosched). That's where I saw how to configure and use this concept.
+A widely used approach is to set up a [`ContentProvider`](http://developer.android.com/reference/android/content/ContentProvider.html). Personally, I came to it thanks to the [_iosched_ open-source application by Google](https://github.com/google/iosched). That's where I saw how to configure and use this concept.
 
 I'd like to say that I find that it's a powerful mechanism, especially when it's used in combination with [`Cursor`](http://developer.android.com/reference/android/database/Cursor.html) and its derivatives like [`CursorLoader`](http://developer.android.com/reference/android/content/CursorLoader.html) and [`CursorAdapter`](http://developer.android.com/reference/android/widget/CursorAdapter.html).
 
-It's performant and reliable. Moreover, it can be boosted up with some tips like overriding the `bulkInsert` method and use a single SQL transaction.
+It's efficient and reliable. Moreover, it can be boosted up with some tips like overriding the `bulkInsert` method and use a single SQL transaction.
 
-The only thing I regret is that it's not petty to set up and we write a lot of boilerplate code.
-That's why I looked for a simpler solution to declare my content provider easily, but to maintain control over the implementation of some methods of the content provider. In other word, I must deal with a `ContentProvider` subclass.
+The only thing I regret is that it's not pretty to set up and we have to write a lot of boilerplate code.
+That's why I looked for a simpler solution to easily declare my content provider, but also to maintain control over the implementation of some methods of the content provider. In other words, I must deal with a `ContentProvider` subclass.
 
 That's why I like [ProviGen](https://github.com/TimotheeJeannin/ProviGen).
 
@@ -885,7 +885,7 @@ Here are the advantages I see:
 * a `TableBuilder` class is available to help developers building their SQL tables with a fluent API
 
 Each "model" class has its own contract class.
-In few lines, the `ProviGenProvider` subclass provides a way to register all these contract class.
+In a few lines, the `ProviGenProvider` subclass provides a way to register all these contract classes.
 
 It becomes very fast to set up a basic content provider. To maintain control over this implementation, we can 
 
@@ -898,19 +898,19 @@ Another tool I like to speed up content provider management is [MicroOrm](https:
 * build a POJO instance from a `Cursor` thanks to the `fromCursor` method of the `MicroOrm` instance
 * build a list of POJO from a `Cursor` thanks to the `listFromCursor` method of the `MicroOrm` instance
 
-A very simple way to deal with `Cursor` and `ContentValues`, inescapable when using a content provider.
+It's a very simple way to deal with `Cursor` and `ContentValues`, unavoidable when using a content provider.
 
 ## Dependency injection
 
-The dependency injection (a.k.a. "DI") is a powerful design pattern that implements inversion of control to resolve dependencies.
+The dependency injection (a.k.a. "DI") is a powerful design pattern that implements "inversion of control" (IoC) to resolve dependencies.
 
-No need to remind how useful can be the DI:
+No need to remind you how useful can be the DI:
 
 * easy to read
 * easy to maintain
 * easy to test (because it's easy to mock an element)
 
-A major solution to use DI on Android is [Dagger2](http://google.github.io/dagger/). Its main advantage I see is that the dependency analysis is done compile time. So potential errors are notified as soon as possible.
+A major solution to use DI on Android is [Dagger2](http://google.github.io/dagger/). The main advantage I see is that the dependency analysis is done at compile time. So potential errors are notified as soon as possible.
 
 This is not the place to detail all the capabilities of Dagger2. 
 [This article, written by Kerry Perez Huanca](http://code.tutsplus.com/tutorials/dependency-injection-with-dagger-2-on-android--cms-23345), provides a good summary of the Dagger2 workflow with its key concepts:
@@ -930,11 +930,11 @@ Now, according to our sample project, following the workflow described up above,
 * the `ServiceQueryExecutor` requires an instance of `JobManager`
 * the `ServiceQueryExecutor` requires an instance of `MerlinsBeard`
 * each query needs a `BusManager` to publish its termination
-* each observers (`Fragment` for example) requires a `BusManager` to register and listen for queries termination
+* each observer (`Fragment` for example) requires a `BusManager` to register and listen for queries termination
 * each DAO needs a `DatabaseHelperAndroidStarter` to be built successfully
-* some queries needs a `DAORepo` to delete, insert or update repo
-* some queries needs a `Transformer` to convert `DTORepo` to `RepoEntity`
-* some elements needs a `DAORepo` to query repo
+* some queries need a `DAORepo` to delete, insert or update a repo
+* some queries need a `Transformer` to convert `DTORepo` to `RepoEntity`
+* some elements need a `DAORepo` to query a repo
 * all queries needs a `GitHubService` to perform REST calls
 * invoking elements requires an instance of `QueryFactory` to start REST calls
 
@@ -1136,7 +1136,7 @@ It now can be injected like:
 Transformer transformerRepo;
 ```
 
-To speed up the set up of components, I use the annotations-based [Auto-Dagger2](https://github.com/lukaspili/Auto-Dagger2) library. Annotations are processed compile-time to generate boilerplate code of the components.
+To speed up the set up of components, I use the annotations-based [Auto-Dagger2](https://github.com/lukaspili/Auto-Dagger2) library. Annotations are processed at compilation time to generate the boilerplate code of the components.
 
 On the one hand, I've to declare my `Application` subclass like this:
 
@@ -1187,7 +1187,7 @@ public interface ApplicationAndroidStarterComponent {
 }
 ```
 
-It allows me not to write code of the component, and not to add manually an `inject` method each time a new element needs injections.
+It allows me not to write the code of the component, and not to add manually an `inject` method each time a new element needs injections.
 
 For example, my `ServiceQueryExecutor` is simply declared as follows:
 
@@ -1204,7 +1204,7 @@ As an introduction to the MVP architecture, its motivations and its benefits, I 
 
 All you need to know about [MVP fundamentals](http://hannesdorfmann.com/mosby/mvp/), [ViewState](http://hannesdorfmann.com/mosby/viewstate/) and LCE (Loading-Content-Error) is well explained in this website.
 
-Another useful tool is the [Android DataBinding library](http://developer.android.com/tools/data-binding/guide.html). Using this one makes our _View_ and our _Model_ tightly coupled. And to have a bidirectional binding. It's the glue we were missing. With a few configuration, we can plug the view (its `layout.xml` file and `Activity`/`Fragment`) to the model (traditionally, a POJO). I let the official documentation tells you how to use this library.
+Another useful tool is the [Android DataBinding library](http://developer.android.com/tools/data-binding/guide.html). Using this one makes our _View_ and our _Model_ tightly coupled and having a bidirectional binding. It's the glue we were missing. With a few configurations, we can plug the view (its `layout.xml` file and `Activity`/`Fragment`) to the model (traditionally, a POJO). I let the official documentation tells you how to use this library.
 
 To explain the MVP architecture using Mosby, I'm going to present the use case of _displaying the detail of a repo_.
 
@@ -1306,9 +1306,9 @@ public final class PresenterRepoDetail extends MvpBasePresenter<ViewRepoDetail> 
 }
 ```
 
-The main code is placed in the `rxGetRepo` method: it loads data from database and asks the view to configure itself according to the result (success: it should display data ; failure: it should display an error).
+The main code is placed in the `rxGetRepo` method: it loads data from the database and asks the view to configure itself according to the result (success: it should display data ; failure: it should display an error).
 
-And now, let's have a look to the `FragmentRepoDetail`. Considering Mosby explanation, this fragment is part of the _View_. So, it should implements the `ViewRepoDetail` we defined. To be closest to Mosby API, we make it inherit from `MvpFragment`, providing generic types `ViewRepoDetail` (for the _View_) and `PresenterRepoDetail` (for the _Presenter_).
+And now, let's have a look at the `FragmentRepoDetail`. Considering Mosby explanation, this fragment is part of the _View_. So, it should implement the `ViewRepoDetail` we defined. To be the closest to Mosby API, we make it inherit from `MvpFragment`, providing generic types `ViewRepoDetail` (for the _View_) and `PresenterRepoDetail` (for the _Presenter_).
 
 So what we get:
 
@@ -1443,9 +1443,9 @@ public class FragmentRepoDetail
 }
 ```
 
-At this point, don't worry, some annotation and classes are going to be described in a next section (`@FragmentArgsInherited`, `@Arg`, `@Bind`, `FragmentArgs`, `ButterKnife` and `Switcher`).
+At this point, don't worry, some annotations and classes are going to be described in a next section (`@FragmentArgsInherited`, `@Arg`, `@Bind`, `FragmentArgs`, `ButterKnife` and `Switcher`).
 
-Finally, just have a look to the corresponding layout:
+Finally, just have a look at the corresponding layout:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -1533,7 +1533,7 @@ With this well-structured and decoupled approach, it's easy to add a new screen,
 
 ## Write thinner classes
 
-Having in mind the huge number of _listeners_, boilerplate code to display specific views and content, handling user interactions (button click, text changes, menu item click)... and so on, it's usual to write `Activity`/`Fragment` with a huge number of lines, methods and interfaces. It could become very difficult to read theses files.
+Having in mind the huge number of _listeners_, the boilerplate code to display specific views and content, handling user interactions (button click, text changes, menu item click)... and so on, it's common to write `Activity`/`Fragment` with a huge number of lines, methods and interfaces. It could become very difficult to read these files.
 
 This section aims at writing this code in a different way:
 
@@ -1546,7 +1546,7 @@ I'm going to give some ideas to answer these questions.
 
 A major step forward in Android development was the release of the [`android-apt`](https://bitbucket.org/hvisser/android-apt) project, by Hugo Visser.
 
-It allows developer to configure, in the gradle build, the compile-time annotation processing. Most of times, libraries using it generates the boilerplate code developer should not have to write.
+It allows developers to configure, in the gradle build file, the compile-time annotation processing. Most of the time, libraries using it generate the boilerplate code developer should not have to write.
 
 Let's have a look to some libraries using Java annotations to drastically simplify Android development, and sometimes built upon `android-apt`.
 
@@ -1559,7 +1559,7 @@ A definitely "must-have library", quoted in every listing!
 It has annotations processor to bind a lot of resources considerations to Java code:
 
 * bind a view by its ID to a Java `View` object, idem for a list of views
-* bind string resource by its ID to a Java `String` object, idem for drawables, colors, dimensions and so on
+* bind string resources by their IDs to a Java `String` object, idem for drawables, colors, dimensions and so on
 * listen to the click on a view (or a list of views) by its ID and call a specific method
 * listen to item selection in a `ListView`
 * listen to some events on views like `OnCheckedChanged`, `OnEditorAction`, `OnFocusChange` ,`OnTextChanged`, etc.
@@ -1579,9 +1579,9 @@ Using it with [its Android Studio plugin](https://github.com/avast/android-butte
 When the _Fragments_ API released, this article was my guidelines: [The Android 3.0 Fragments API](http://android-developers.blogspot.fr/2011/02/android-30-fragments-api.html).
 
 But, the more I created fragments, the more a question grew in my mind:
-> Is there a way to get rid of the static `newInstance` I spend so much time to write?
+> Is there a way to get rid of the static `newInstance` I spend so much time writing?
 
-Well OK, not so much in fact, but I found it so painful to rewrite each time a add a new fragment. That's why I looked for a way to automate it. And here comes FragmentArgs!
+Well OK, not so much in fact, but I found it so painful to rewrite each time to add a new fragment. That's why I looked for a way to automate it. And here comes FragmentArgs!
 
 * <http://hannesdorfmann.com/android/fragmentargs/>
 * <https://github.com/sockeqwe/fragmentargs>
@@ -1594,7 +1594,7 @@ That way, you gain a formal contract to create your fragment, you are sure of wh
 
 * <https://github.com/emilsjolander/IntentBuilder>
  
-After using FragmentArgs, I asked myself how to start activities and services in the same way. My motivations are pretty the same that for FragmentArgs. The collateral benefit is that I gain a similar way to build all these concepts from the Android SDK.
+After using FragmentArgs, I asked myself how to start activities and services in the same way. My motivations are pretty much the same that for FragmentArgs. The collateral benefit is that I gain a similar way to build all these concepts from the Android SDK.
 
 Having this in mind, IntentBuilder represents the perfect solution I was looking for.
 
@@ -1604,7 +1604,7 @@ Having this in mind, IntentBuilder represents the perfect solution I was looking
  
 Another "must-have library", quoted frequently in listings!
 
-It aims at simplify the way to save and restore the state of activities and fragments.
+It aims at simplifying the way to save and restore the state of activities and fragments.
 It provides very clear annotations and a powerful utility class named `Icepick`.
 
 #### OnActivityResult
@@ -1613,7 +1613,7 @@ It provides very clear annotations and a powerful utility class named `Icepick`.
 
 Another boilerplate code often written by an Android developer concerns the "OnActivityResult" part.
 
-We have to override the `onActivityResult` method, test the request code, test the result code, and here we can deal with result. We usually fall in a lot of nested blocks, difficult to read and understand.
+We have to override the `onActivityResult` method, test the request code, test the result code, and here we can deal with the result. We usually fall in a lot of nested blocks, difficult to read and understand.
 
 This library provides a relevant answer to this issue.
 
@@ -1625,8 +1625,8 @@ The code is definitely lighter and clearer.
 
 * <https://projectlombok.org/>
 
-It's a famous Java project to reduce boilerplate Java code.
-Developer writes less code, so it's less error-prone and easy to read.
+It's a famous Java project to reduce the boilerplate Java code.
+The developer writes less code, so it's less error-prone and easier to read.
 
 In an Android project, using Android Studio, it should be used in combination with the associated plugin:
 
@@ -1640,7 +1640,7 @@ In an Android project, using Android Studio, it should be used in combination wi
 The advantages I see:
 
 * No need to write the redundant code of an adapter with its `getCount` methods and so on
-* A dedicated class to manage the view to display, that has more meaning that adapter one for me
+* A dedicated class to manage the view to display to, that has more meaning that adapter one for me
 * No more hand-handling of the _ViewHolder_ pattern
 * An easy binding in few lines in the worker class
 * Works well with Butter Knife
@@ -1661,13 +1661,13 @@ It's possible to turn it so that it can manage a `Cursor`.
 
 Here comes a powerful library to inflate and bind `View`: [Michelangelo](https://github.com/RomainPiel/Michelangelo).
 
-Now, an easy way to retrieve values from a `Cursor` could be to use the [MicroOrm library](https://github.com/chalup/microorm) (as you can see in a previous section).
+Now, an easy way to retrieve values from a `Cursor` could be to use of the [MicroOrm library](https://github.com/chalup/microorm) (as you can see in a previous section).
 
 ### Welcome to a Lambda Expressions world from Java 8 thanks to `Retrolambda`
 
 A major contribution of Java 8 is the lambda expressions.
 
-It's like the _closures_ of languages such as Groovy or Scala for example. The idea is to provide a references mechanism to anonymous code blocks.
+It's like the _closures_ of languages such as Groovy or Scala for example. The idea is to provide a reference mechanism to write anonymous code blocks.
 
 In functional languages, this feature is very useful. For example, it allows developers to pass a function "B" as a parameter of a function "A", making this "A" function reusable and easy to test. 
 
@@ -1685,7 +1685,7 @@ It has a very fluent syntax:
 (parameters) -> { statements block }
 ```
 
-In my Android projects, I use it to significantly reduce the size of my source code. Each time I have to deal with a SAM interface, I can use a lambda expression. By the way, it's frequently Android Studio that advises me to replace my code with a lambda expression!
+In my Android projects, I use it to significantly reduce the size of my source code. Each time I have to deal with a SAM interface, I can use a lambda expression. By the way, it's frequent that Android Studio advises me to replace my code with a lambda expression!
 
 To do so, I have to include [Gradle Retrolambda Plugin](https://github.com/evant/gradle-retrolambda) to my project.
 
@@ -1730,7 +1730,7 @@ And here we are!
 
 LCE is an acronym (I knew thanks to the Mosby articles) to describe the traditional Loading-Content-Error views an `Activity` or `Fragment` could manage. I just would like to add the _Empty_ view keyword.
 
-It's a common task to switch from one `View` to another according to user interaction and/or jobs execution. It could easily become a complex lot of methods with boolean parameters to represent the view state. Not easy to set up and not easy to read when coming back to the project few months later.
+It's a common task to switch from one `View` to another according to user interactions and/or jobs execution. It could easily become a complex lot of methods with boolean parameters to represent the view state. Not easy to set up and not easy to read when coming back to the project a few months later.
 
 I looked for various approaches to simplify this (error-prone) task.
 And a relevant answer I found is the use of the Switcher library.
@@ -1818,9 +1818,9 @@ public class TestClass {
 
 ### Write tests the BDD way
 
-A trend I love when writing tests is to use the "given/when/then" canvas. The result is an organized writing of test methods, following a specific requirement, that can serve as technical documentation.
+A trend I love when writing tests is to use the "given/when/then" canvas. The result is an organized writing of test methods, following a specific requirement that can serve as technical documentation.
 
-That's why I wonder "how to write better unit tests for my Android projects?".
+That's why I wonder "how to write better unit tests for my Android projects?"
 
 A first answer I found was to use Java labels such as:
 
@@ -1868,8 +1868,8 @@ public class FrutillaExamplesWithAnnotationTest {
 }
 ```
 
-The first benefit is that the test method explains itself it specific use case.
-Next, when a test fails, the stacktrace becomes very clear and describes precisely the failing use case.
+The first benefit is that the test method explains itself in a specific use case.
+Next, when a test fails, the stack trace becomes very clear and describes precisely the failing use case.
 
 ### Fluent assertions
 
@@ -1908,7 +1908,7 @@ To mock the behavior of some components of my projects, I use the [Mockito libra
 
 ![Mockito logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_mockito.png)
 
-Considering I'm in Multidex project, I have to configure my `build.gradle` as follows:
+Considering I'm in a Multidex project, I have to configure my `build.gradle` as follows:
 
 ```groovy
     androidTestCompile 'org.mockito:mockito-core:1.10.19'
@@ -2045,8 +2045,8 @@ public class TestMyCustomActivity extends AbstractRobotiumTestCase<MyCustomActiv
 }
 ```
 
-I pass `false` as third parameter to the `ActivityTestRule` constructor so it doesn't start the activity by default. Then, I launch the activity at the end of my "given" block, after all initializations I need.
-By calling `mActivityTestRule.launchActivity(null)`, I notify the test rule to build the default `Intent` (thanks to the `null` parameter) and start it. It returns me an instance of the started activity.
+I pass `false` as the third parameter to the `ActivityTestRule` constructor so it doesn't start the activity by default. Then, I launch the activity at the end of my "given" block, after all the initializations I need.
+By calling `mActivityTestRule.launchActivity(null)`, I notify the test rule to build the default `Intent` (thanks to the `null` parameter) and start it. It returns an instance of the started activity.
 
 ### Combination with dependency injection
 
@@ -2225,7 +2225,7 @@ public class MockModuleRest extends ModuleRest {
     //endregion
 }
 ```
-I lean on [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) to enqueue mock responses. This way, each time a REST call is made, it will deal with mock responses I declared.
+I lean on [MockWebServer](https://github.com/square/okhttp/tree/master/mockwebserver) to queue up mock responses. This way, each time a REST call is made, it will deal with the mock responses I declared.
 
 The next point is: to use this mock application, we should configure our test project. It begins with the creation of a custom `AndroidJUnitRunner` to declare the `Application` subclass to use:
 
@@ -2264,7 +2264,7 @@ android {
     }
 ```
 
-Finally, in our test case, we can enqueue mock responses as follows:
+Finally, in our test case, we can queue up mock responses as follows:
 
 ```java
 public class ATestCase {
@@ -2325,9 +2325,9 @@ public class ATestCase {
 }
 ```
 
-This example is focused on REST communications, but it can be applied on various layers such as persistence for example.
+This example is focused on REST communications, but it can be applied to various layers such as persistence for example.
 
-Moreover, the example shown enqueues only one mock response, but it becomes possible to add multiple responses to build more complex scenarios.
+Moreover, the example shown queues up only one mock response, but it becomes possible to add multiple responses to build more complex scenarios.
 
 ## Code coverage
 
@@ -2362,7 +2362,7 @@ Now we can find the report in the `{main_module}/build/reports/coverage/debug` d
 ## Relevant libraries
 
 * Arrow: 
-	> Arrow is Lightweight library toolbox for Java and Android Development.
+	> Arrow is a Lightweight library toolbox for Java and Android Development.
 	* <https://github.com/android10/arrow>
 
 	![Arrow logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_arrow.jpg)
