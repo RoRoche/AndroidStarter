@@ -87,16 +87,16 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.android.support:support-v4:23.1.1'
-    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    compile 'com.android.support:support-v4:23.2.1'
+    compile 'com.android.support:design:23.2.1'
 
     compile 'com.android.support:multidex:1.0.1'
 
     compile 'com.github.lukaspili.autodagger2:autodagger2:1.1'
     apt 'com.github.lukaspili.autodagger2:autodagger2-compiler:1.1'
 
-    compile 'com.android.support:recyclerview-v7:23.1.1'
+    compile 'com.android.support:recyclerview-v7:23.2.1'
 
     compile 'com.jakewharton:butterknife:7.0.1'
 
@@ -171,7 +171,7 @@ dependencies {
     androidTestCompile('com.android.support:multidex-instrumentation:1.0.1') {
         exclude group: 'com.android.support', module: 'multidex'
     }
-    androidTestCompile 'com.android.support:support-annotations:23.1.1'
+    androidTestCompile 'com.android.support:support-annotations:23.2.1'
     androidTestCompile 'com.android.support.test:runner:0.4.1'
     androidTestCompile 'com.android.support.test:rules:0.4.1'
     androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.5.4'
