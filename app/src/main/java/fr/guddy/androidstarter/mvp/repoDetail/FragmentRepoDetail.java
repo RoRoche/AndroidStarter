@@ -24,8 +24,8 @@ import pl.aprilapps.switcher.Switcher;
 
 @FragmentWithArgs
 public class FragmentRepoDetail
-        extends MvpFragment<ViewRepoDetail, PresenterRepoDetail>
-        implements ViewRepoDetail {
+        extends MvpFragment<RepoDetailMvp.View, RepoDetailMvp.Presenter>
+        implements RepoDetailMvp.View {
 
     //region FragmentArgs
     @Arg
@@ -122,7 +122,7 @@ public class FragmentRepoDetail
     }
 
     @Override
-    public void setData(final ModelRepoDetail poData) {
+    public void setData(final RepoDetailMvp.Model poData) {
         configureViewWithRepo(poData.repo);
 
         final Activity loActivity = this.getActivity();

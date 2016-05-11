@@ -30,8 +30,8 @@ import io.nlopez.smartadapters.utils.ViewEventListener;
 import pl.aprilapps.switcher.Switcher;
 
 public class FragmentRepoList
-        extends MvpViewStateFragment<ViewRepoList, PresenterRepoList>
-        implements ViewRepoList, ViewEventListener<RepoEntity>, SwipeRefreshLayout.OnRefreshListener {
+        extends MvpViewStateFragment<RepoListMvp.View, RepoListMvp.Presenter>
+        implements RepoListMvp.View, ViewEventListener<RepoEntity>, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String TAG = FragmentRepoList.class.getSimpleName();
     private static final boolean DEBUG = true;
@@ -170,7 +170,7 @@ public class FragmentRepoList
     @DebugLog
     @NonNull
     @Override
-    public PresenterRepoList createPresenter() {
+    public RepoListMvp.Presenter createPresenter() {
         return new PresenterRepoList();
     }
     //endregion
@@ -213,8 +213,8 @@ public class FragmentRepoList
 
     @DebugLog
     @Override
-    public void setData(final ModelRepoList poData) {
-        ((ViewStateRepoList) viewState).data = poData;
+    public void setData(final RepoListMvp.Model poData) {
+        ((RepoListMvp.ViewState) viewState).data = poData;
 
         SmartAdapter.items(poData.repos)
                 .map(RepoEntity.class, CellRepo.class)
@@ -234,7 +234,7 @@ public class FragmentRepoList
     @NonNull
     @Override
     public ViewState createViewState() {
-        return new ViewStateRepoList();
+        return new RepoListMvp.ViewState();
     }
 
     @DebugLog
