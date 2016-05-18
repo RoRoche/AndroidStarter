@@ -2362,8 +2362,9 @@ Now we can find the report in the `{main_module}/build/reports/coverage/debug` d
 ## Relevant libraries
 
 * Arrow: 
-	> Arrow is a Lightweight library toolbox for Java and Android Development.
 	* <https://github.com/android10/arrow>
+	
+	> Arrow is a Lightweight library toolbox for Java and Android Development.
 
 	![Arrow logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_arrow.jpg)
 	
@@ -2375,15 +2376,18 @@ Now we can find the report in the `{main_module}/build/reports/coverage/debug` d
 * hugo: 
 	* <https://github.com/JakeWharton/hugo>
 * Frodo:
-	> Android Library for Logging RxJava Observables and Subscribers.
 	* <https://github.com/android10/frodo>
-* Lynx
-	> Lynx is an Android library created to show a custom view with all the information Android logcat is printing, different traces of different levels will be rendered to show from log messages to your application exceptions.
+	
+	> Android Library for Logging RxJava Observables and Subscribers.
+* Lynx:
 	* <https://github.com/pedrovgs/Lynx>
-* FluentView
-	> Android Library for Setting a View via Fluent Interface
+	
+	> Lynx is an Android library created to show a custom view with all the information Android logcat is printing, different traces of different levels will be rendered to show from log messages to your application exceptions.
+* FluentView:
 	* <https://github.com/nantaphop/FluentView>
 	
+	> Android Library for Setting a View via Fluent Interface
+
 	![FluentView logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_fluentview.jpeg)
 
 ## Relevant tools
