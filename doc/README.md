@@ -2361,11 +2361,11 @@ Now we can find the report in the `{main_module}/build/reports/coverage/debug` d
 
 ## Relevant libraries
 
-* Arrow
+* Arrow: 
+
+	* <https://github.com/android10/arrow>
 	
 	> Arrow is a Lightweight library toolbox for Java and Android Development.
-	
-	* <https://github.com/android10/arrow>
 
 	![Arrow logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_arrow.jpg)
 	
@@ -2398,8 +2398,6 @@ Now we can find the report in the `{main_module}/build/reports/coverage/debug` d
 * FluentView
 	
 	> Android Library for Setting a View via Fluent Interface
-	
-	* <https://github.com/nantaphop/FluentView>
 	
 	![FluentView logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_fluentview.jpeg)
 
