@@ -1,6 +1,6 @@
 # Little stories about an Android application architecture
 
-![Android logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_android.png)
+![Android logo](./assets/logo_android.png)
 
 By writing this paper, my goal is to describe how I came up with the Android app architecture I suggest.
 It's a step by step writing to follow the reasons bringing me to set up the different components I chose.
@@ -626,7 +626,7 @@ It's also very powerful when setting up relationships. At least, it provides a v
 
 #### OrmLite
 
-![OrmLite logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_ormlite.png)
+![OrmLite logo](./assets/logo_ormlite.png)
 
 That's why I chose one of the most famous ORM on Android: [OrmLite](http://ormlite.com/sqlite_java_android_orm.shtml).
 
@@ -813,7 +813,7 @@ A simple response could be to gather all annotations in the same Java class. But
 
 My goal is to keep a class to interact with the network, `DTORepo` ; and one to map the database, `RepoEntity`. Basically, they have common fields, with the same names. So I need a tool to convert DTO to Entity. That's where [Android Transformer](https://github.com/txusballesteros/android-transformer) comes to the rescue:
 
-![Android Transformer logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_transformer.png)
+![Android Transformer logo](./assets/logo_transformer.png)
 
 It provides two main annotations:
 
@@ -1847,7 +1847,7 @@ Nothing special, except the structure of the tree steps of this canvas to three 
 
 Another tool I came with is the very attractive [Frutilla](https://github.com/ignaciotcrespo/frutilla).
 
-![Frutilla logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_frutilla.jpg)
+![Frutilla logo](./assets/logo_frutilla.jpg)
 
 The idea is to describe the tests in plain text thanks to Java annotations, as follows:
 
@@ -1906,7 +1906,7 @@ Square also released a library to write specific assertions to Android views:
 
 To mock the behavior of some components of my projects, I use the [Mockito library](http://site.mockito.org).
 
-![Mockito logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_mockito.png)
+![Mockito logo](./assets/logo_mockito.png)
 
 Considering I'm in a Multidex project, I have to configure my `build.gradle` as follows:
 
@@ -1936,17 +1936,17 @@ Other well-known mocking libraries are commonly used across the Android ecosyste
 
 * Robolectric: <http://robolectric.org/>
 
-![Robolectric logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_robolectric.png)
+![Robolectric logo](./assets/logo_robolectric.png)
 
 * PowerMock: <https://github.com/jayway/powermock>
 
-![PowerMock logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_powermock.png)
+![PowerMock logo](./assets/logo_powermock.png)
 
 ### UI testing
 
 Another well-known testing library is [Robotium](https://github.com/robotiumtech/robotium). It's very powerful to describe and run UI tests.
 
-![Robotium logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_robotium.png)
+![Robotium logo](./assets/logo_robotium.png)
 
 To set it up, we have to use it in combination with the [`ActivityTestRule`](http://developer.android.com/reference/android/support/test/rule/ActivityTestRule.html). This one allows us to write tests concerning an Android `Activity`. Then we get this `Activity` to configure our `Solo` instance. This `Solo` class is the entry point of the Robotium tool. This class provides a wide set of methods to reproduce the user behavior.
 
@@ -2357,55 +2357,84 @@ gradle createDebugCoverageReport
 
 Now we can find the report in the `{main_module}/build/reports/coverage/debug` directory. We just need to open the `index.html` file in a Web browser to view the report.
 
-![Code coverage screenshot](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/code_coverage_report.png)
+![Code coverage screenshot](./assets/code_coverage_report.png)
 
 ## Relevant libraries
 
-* Arrow: 
+* Arrow
+	
 	> Arrow is a Lightweight library toolbox for Java and Android Development.
+	
 	* <https://github.com/android10/arrow>
 
-	![Arrow logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_arrow.jpg)
+	![Arrow logo](./assets/logo_arrow.jpg)
 	
 * Paperwork
+	
 	> Generate build info for your Android project without breaking incremental compilation
+	
 	* <https://github.com/zsoltk/paperwork>
-* Logger:
+
+* Logger
+	
 	* <https://github.com/orhanobut/logger>
-* hugo: 
+
+* hugo
+	
 	* <https://github.com/JakeWharton/hugo>
-* Frodo:
+
+* Frodo
+	
 	> Android Library for Logging RxJava Observables and Subscribers.
+	
 	* <https://github.com/android10/frodo>
+
 * Lynx
+	
 	> Lynx is an Android library created to show a custom view with all the information Android logcat is printing, different traces of different levels will be rendered to show from log messages to your application exceptions.
+	
 	* <https://github.com/pedrovgs/Lynx>
+
 * FluentView
+	
 	> Android Library for Setting a View via Fluent Interface
+	
 	* <https://github.com/nantaphop/FluentView>
 	
-	![FluentView logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_fluentview.jpeg)
+	![FluentView logo](./assets/logo_fluentview.jpeg)
 
 ## Relevant tools
 
 * Scalpel
+	
 	* <https://github.com/JakeWharton/scalpel>
 	
 	> A surgical debugging tool to uncover the layers under your app.
+
 * LeakCanary
+	
 	* <https://github.com/square/leakcanary>
 	
 	> A memory leak detection library for Android and Java.
+
 * DebugDrawer
+	
 	* <https://github.com/palaima/DebugDrawer>
 	
 	> Android Debug Drawer for faster development
+
 * Android Asset Studio
+	
 	* <http://romannurik.github.io/AndroidAssetStudio/>
+
 * Fabric
+	
 	* <https://fabric.io/>
+	
 	* <https://fabric.io/kits/android/crashlytics/summary>
+
 * Vector Asset Studio
+	
 	* <http://developer.android.com/tools/help/vector-asset-studio.html>
 	
 	> Vector Asset Studio helps you add material icons and import Scalable Vector Graphic (SVG) files into your app project as a drawable resource.
@@ -2414,9 +2443,9 @@ Now we can find the report in the `{main_module}/build/reports/coverage/debug` d
 
 * Android Arsenal
 	* <http://android-arsenal.com>
-* androidweekly:
+* androidweekly
 	* <http://androidweekly.net/>
-* Gradle tips & tricks:
+* Gradle tips & tricks
 	* <https://medium.com/@cesarmcferreira/gradle-tips-tricks-to-survive-the-zombie-apocalypse-3dd996604341>
 * RxAndroidLibs
 	* <https://github.com/zsoltk/RxAndroidLibs>
@@ -2425,22 +2454,22 @@ Now we can find the report in the `{main_module}/build/reports/coverage/debug` d
 
 ## Bibliography
 
-* Android DataBinding:
+* Android DataBinding
 	* <http://www.opgenorth.net/blog/2015/09/15/android-data-binding-intro/>
 * Code coverage
 	* <http://blog.wittchen.biz.pl/test-coverage-report-for-android-application/>
-* Dagger2: 
+* Dagger2
 	* <http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/>
 	* <https://blog.gouline.net/2015/05/04/dagger-2-even-sharper-less-square/>
 	* <http://code.tutsplus.com/tutorials/dependency-injection-with-dagger-2-on-android--cms-23345>
 	* <https://www.future-processing.pl/blog/dependency-injection-with-dagger-2/>
-* Retrolambda: 
+* Retrolambda
 	* <http://www.vogella.com/tutorials/Retrolambda/article.html>
-* RxJava:
+* RxJava
 	* <http://blog.soat.fr/2015/06/rxjava-ecriture-de-code-asynchrone/>
 	* <http://blog.xebia.fr/2014/01/10/android-oubliez-definitivement-les-asynctask-avec-rxjava/>
 	* <https://github.com/ReactiveX/RxAndroid>
 	* <http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/>
-* Testing:
+* Testing
 	* <https://prezi.com/fxxkpgakbivh/behaviour-driven-development-in-android-studio/>
 	* <http://fedepaol.github.io/blog/2015/09/05/mocking-with-robolectric-and-dagger-2/>
