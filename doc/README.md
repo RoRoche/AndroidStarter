@@ -2363,9 +2363,9 @@ Now we can find the report in the `{main_module}/build/reports/coverage/debug` d
 
 * Arrow: 
 
-	* <https://github.com/android10/arrow>
-	
 	> Arrow is a Lightweight library toolbox for Java and Android Development.
+	
+	* <https://github.com/android10/arrow>
 
 	![Arrow logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_arrow.jpg)
 	
@@ -2405,21 +2405,21 @@ Now we can find the report in the `{main_module}/build/reports/coverage/debug` d
 
 * Scalpel
 	
-	* <https://github.com/JakeWharton/scalpel>
-	
 	> A surgical debugging tool to uncover the layers under your app.
+	
+	* <https://github.com/JakeWharton/scalpel>
 
 * LeakCanary
 	
-	* <https://github.com/square/leakcanary>
-	
 	> A memory leak detection library for Android and Java.
+	
+	* <https://github.com/square/leakcanary>
 
 * DebugDrawer
 	
-	* <https://github.com/palaima/DebugDrawer>
-	
 	> Android Debug Drawer for faster development
+	
+	* <https://github.com/palaima/DebugDrawer>
 
 * Android Asset Studio
 	
@@ -2433,9 +2433,9 @@ Now we can find the report in the `{main_module}/build/reports/coverage/debug` d
 
 * Vector Asset Studio
 	
-	* <http://developer.android.com/tools/help/vector-asset-studio.html>
-	
 	> Vector Asset Studio helps you add material icons and import Scalable Vector Graphic (SVG) files into your app project as a drawable resource.
+	
+	* <http://developer.android.com/tools/help/vector-asset-studio.html>
 
 ## Relevant resources
 
