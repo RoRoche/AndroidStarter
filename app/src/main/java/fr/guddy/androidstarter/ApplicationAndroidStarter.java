@@ -2,7 +2,6 @@ package fr.guddy.androidstarter;
 
 import android.app.Application;
 import android.os.StrictMode;
-import android.util.Log;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.novoda.merlin.Merlin;
