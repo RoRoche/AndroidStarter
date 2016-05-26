@@ -25,9 +25,9 @@
     </Match>
     <!-- All bugs in test classes, except for JUnit-specific bugs -->
     <Match>
-        <Class name="~.*\.*Test" />
+        <Class name="~.*\.*Test"/>
         <Not>
-            <Bug code="IJU" />
+            <Bug code="IJU"/>
         </Not>
     </Match>
 
