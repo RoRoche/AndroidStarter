@@ -2359,6 +2359,27 @@ Now we can find the report in the `{main_module}/build/reports/coverage/debug` d
 
 ![Code coverage screenshot](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/code_coverage_report.png)
 
+## Code quality
+
+A great article about this topic was written by [Vincent Brison](http://vincentbrison.com/): ["How to improve quality and syntax of your Android code"](http://vincentbrison.com/2014/07/19/how-to-improve-quality-and-syntax-of-your-android-code/). In this article, some useful tools are listed:
+
+* [Checkstyle](http://checkstyle.sourceforge.net/)
+* [FindBugs](http://findbugs.sourceforge.net/)
+* [PMD](http://pmd.github.io/)
+* [Android Lint](http://tools.android.com/tips/lint)
+
+Vincent Brison shows us how to combine and use them with Gradle.
+
+First, we can go to the [associated repository](https://github.com/vincentbrison/vb-android-app-quality) and copy the `config` at the root level of our project.
+
+Then, we just have to add the following line in our `app/build.gradle` file:
+
+```groovy
+apply from: '../config/quality.gradle'
+```
+
+Finally, when running the `gradle check` command at the project root level, it automatically runs these tools, producing associated reports in the `app/build/reports` folder.
+
 ## Relevant libraries
 
 * Arrow: 
@@ -2399,7 +2420,15 @@ Now we can find the report in the `{main_module}/build/reports/coverage/debug` d
 	
 	> Android Library for Setting a View via Fluent Interface
 	
+	* <https://github.com/nantaphop/FluentView>
+	
 	![FluentView logo](https://raw.githubusercontent.com/RoRoche/AndroidStarter/master/assets/logo_fluentview.jpeg)
+
+* AndroidDevMetrics
+	
+	> Performance metrics library for Android development.
+	
+	* <https://github.com/frogermcs/AndroidDevMetrics>
 
 ## Relevant tools
 
