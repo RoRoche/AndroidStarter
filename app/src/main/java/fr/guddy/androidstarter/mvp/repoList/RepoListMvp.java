@@ -43,6 +43,7 @@ public interface RepoListMvp {
     final class ViewState implements RestorableViewState<View> {
 
         //region Data to retain
+
         @Icicle
         public Serializable data;
         //endregion
@@ -58,6 +59,8 @@ public interface RepoListMvp {
                 } else {
                     poView.showContent();
                 }
+            } else {
+                poView.showError(null, false);
             }
         }
         //endregion

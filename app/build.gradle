@@ -34,8 +34,8 @@ repositories {
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 24
+    buildToolsVersion "23.0.3"
 
     def ENVIRONMENT_CONSTANT_TYPE = "fr.guddy.androidstarter.IEnvironment"
     def ENVIRONMENT_CONSTANT_VALUE_DEV = "fr.guddy.androidstarter.Environment.DEV"
@@ -45,7 +45,7 @@ android {
     defaultConfig {
         applicationId "fr.guddy.androidstarter"
         minSdkVersion 18
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         // Enabling multidex support.
@@ -85,16 +85,16 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.2.1'
-    compile 'com.android.support:support-v4:23.2.1'
-    compile 'com.android.support:design:23.2.1'
+    compile 'com.android.support:appcompat-v7:24.0.0-alpha2'
+    compile 'com.android.support:support-v4:24.0.0-alpha2'
+    compile 'com.android.support:design:24.0.0-alpha2'
 
     compile 'com.android.support:multidex:1.0.1'
 
     compile 'com.github.lukaspili.autodagger2:autodagger2:1.1'
     apt 'com.github.lukaspili.autodagger2:autodagger2-compiler:1.1'
 
-    compile 'com.android.support:recyclerview-v7:23.2.1'
+    compile 'com.android.support:recyclerview-v7:24.0.0-alpha2'
 
     compile 'com.jakewharton:butterknife:7.0.1'
 
@@ -169,7 +169,7 @@ dependencies {
     androidTestCompile('com.android.support:multidex-instrumentation:1.0.1') {
         exclude group: 'com.android.support', module: 'multidex'
     }
-    androidTestCompile 'com.android.support:support-annotations:23.2.1'
+    androidTestCompile 'com.android.support:support-annotations:24.0.0-alpha2'
     androidTestCompile 'com.android.support.test:runner:0.4.1'
     androidTestCompile 'com.android.support.test:rules:0.4.1'
     androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.5.4'
@@ -179,9 +179,4 @@ dependencies {
     androidTestCompile 'org.mockito:mockito-core:1.10.19'
     androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
     androidTestCompile 'com.squareup.okhttp3:okhttp-testing-support:3.2.0'
-}
-
-retrolambda {
-    jdk '/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home'
-    jvmArgs '-noverify'
 }
