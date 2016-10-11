@@ -23,7 +23,7 @@ apply plugin: 'me.tatarka.retrolambda'
 
 apply plugin: 'ormgap'
 
-apply from: '../config/quality.gradle'
+//apply from: '../config/quality.gradle'
 
 repositories {
     maven {
