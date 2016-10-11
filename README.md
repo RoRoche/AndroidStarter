@@ -1,6 +1,8 @@
 # AndroidStarter
 A sample Android app using the MVP architecture.
 
+[![Build Status](https://travis-ci.org/RoRoche/AndroidStarter.svg?branch=master)](https://travis-ci.org/RoRoche/AndroidStarter)
+
 <http://roroche.github.io/AndroidStarter>
 
 ## AndroidStarter in the news
