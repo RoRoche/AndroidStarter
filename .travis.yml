@@ -6,6 +6,7 @@ android:
     - platform-tools
     - build-tools-23.0.3
     - android-24
+    - extra-android-m2repository
 
 script:
    - ./gradlew build connectedCheck
