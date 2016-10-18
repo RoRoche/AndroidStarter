@@ -48,7 +48,7 @@ public class ActivityRepoList extends AppCompatActivity
 
         ButterKnife.bind(this);
 
-        if(mEnvironment.isDebugDrawerEnabled()) {
+        if (mEnvironment.isDebugDrawerEnabled()) {
             mDebugDrawer = new DebugDrawer.Builder(this).modules(
                     new FpsModule(Takt.stock(getApplication())),
                     new ScalpelModule(this),
@@ -65,23 +65,25 @@ public class ActivityRepoList extends AppCompatActivity
     protected void onStart() {
         super.onStart();
 
-        if(mDebugDrawer != null) {
+        if (mDebugDrawer != null) {
             mDebugDrawer.onStart();
         }
     }
 
-    @Override protected void onResume() {
+    @Override
+    protected void onResume() {
         super.onResume();
 
-        if(mDebugDrawer != null) {
+        if (mDebugDrawer != null) {
             mDebugDrawer.onResume();
         }
     }
 
-    @Override protected void onPause() {
+    @Override
+    protected void onPause() {
         super.onPause();
 
-        if(mDebugDrawer != null) {
+        if (mDebugDrawer != null) {
             mDebugDrawer.onPause();
         }
     }
@@ -90,7 +92,7 @@ public class ActivityRepoList extends AppCompatActivity
     protected void onStop() {
         super.onStop();
 
-        if(mDebugDrawer != null) {
+        if (mDebugDrawer != null) {
             mDebugDrawer.onStop();
         }
     }

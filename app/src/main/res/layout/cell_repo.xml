@@ -42,5 +42,5 @@
         android:gravity="center_vertical"
         android:textAppearance="?android:attr/textAppearanceListItemSmall"
         android:layout_toEndOf="@id/CellRepo_ImageView_Avatar"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 </RelativeLayout>

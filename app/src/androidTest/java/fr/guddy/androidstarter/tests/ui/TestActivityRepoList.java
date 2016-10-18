@@ -2,7 +2,6 @@ package fr.guddy.androidstarter.tests.ui;
 
 import android.support.annotation.NonNull;
 import android.support.test.rule.ActivityTestRule;
-import android.test.suitebuilder.annotation.LargeTest;
 
 import com.github.polok.localify.LocalifyClient;
 
@@ -24,7 +23,6 @@ import static com.google.common.truth.Truth.assertThat;
 
 @org.junit.Ignore
 @RunWith(FrutillaTestRunner.class)
-@LargeTest
 public class TestActivityRepoList extends AbstractRobotiumTestCase<ActivityRepoList> {
 
     //region Fields
@@ -67,9 +65,9 @@ public class TestActivityRepoList extends AbstractRobotiumTestCase<ActivityRepoL
 
     //region Test methods
     @Frutilla(
-            Given   = "A single GitHub repo from the API",
-            When    = "",
-            Then    = "It should display a repo named \"git-consortium\""
+            Given = "A single GitHub repo from the API",
+            When = "",
+            Then = "It should display a repo named \"git-consortium\""
     )
     @Test
     public void test_ListRepos_WithOneRepo_DisplayListWithOnlyThisRepo() {
@@ -99,9 +97,9 @@ public class TestActivityRepoList extends AbstractRobotiumTestCase<ActivityRepoL
     }
 
     @Frutilla(
-            Given   = "A single GitHub repo from the API",
-            When    = "Click on its name",
-            Then    = "It should display the detail of this repo"
+            Given = "A single GitHub repo from the API",
+            When = "Click on its name",
+            Then = "It should display the detail of this repo"
     )
     @Test
     public void test_ListRepos_ClickOnOneRepo_DisplayDetailWithOnlyThisRepo() {
@@ -133,9 +131,9 @@ public class TestActivityRepoList extends AbstractRobotiumTestCase<ActivityRepoL
     }
 
     @Frutilla(
-            Given   = "A single GitHub repo from the API",
-            When    = "Click on its name and on the back button",
-            Then    = "It should display the list"
+            Given = "A single GitHub repo from the API",
+            When = "Click on its name and on the back button",
+            Then = "It should display the list"
     )
     @Test
     public void test_DetailRepos_ClickOnBack_DisplayListRepos() {

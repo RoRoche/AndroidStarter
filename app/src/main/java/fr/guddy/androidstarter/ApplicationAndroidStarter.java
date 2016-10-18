@@ -20,6 +20,7 @@ import fr.guddy.androidstarter.di.modules.ModuleDatabase;
 import fr.guddy.androidstarter.di.modules.ModuleEnvironment;
 import fr.guddy.androidstarter.di.modules.ModuleRest;
 import fr.guddy.androidstarter.di.modules.ModuleTransformer;
+import fr.guddy.androidstarter.mvp.repoDetail.MvpRepoDetail;
 
 @AutoComponent(
         modules = {
@@ -30,6 +31,9 @@ import fr.guddy.androidstarter.di.modules.ModuleTransformer;
                 ModuleEnvironment.class,
                 ModuleRest.class,
                 ModuleTransformer.class
+        },
+        subcomponents = {
+                MvpRepoDetail.class
         }
 )
 @Singleton

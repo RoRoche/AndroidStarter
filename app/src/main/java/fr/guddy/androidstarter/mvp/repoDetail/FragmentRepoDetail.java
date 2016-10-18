@@ -18,14 +18,16 @@ import com.hannesdorfmann.mosby.mvp.MvpFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fr.guddy.androidstarter.ApplicationAndroidStarter;
+import fr.guddy.androidstarter.ApplicationAndroidStarterComponent;
 import fr.guddy.androidstarter.R;
 import fr.guddy.androidstarter.persistence.entities.RepoEntity;
 import pl.aprilapps.switcher.Switcher;
 
 @FragmentWithArgs
 public class FragmentRepoDetail
-        extends MvpFragment<RepoDetailMvp.View, RepoDetailMvp.Presenter>
-        implements RepoDetailMvp.View {
+        extends MvpFragment<MvpRepoDetail.View, MvpRepoDetail.Presenter>
+        implements MvpRepoDetail.View {
 
     //region FragmentArgs
     @Arg
@@ -34,10 +36,6 @@ public class FragmentRepoDetail
 
     //region Fields
     private Switcher mSwitcher;
-    @Bind(R.id.FragmentRepoDetail_TextView_Description)
-    TextView mTextViewDescription;
-    @Bind(R.id.FragmentRepoDetail_TextView_Url)
-    TextView mTextViewUrl;
     //endregion
 
     //region Injected views
@@ -49,6 +47,10 @@ public class FragmentRepoDetail
     ProgressBar mProgressBarLoading;
     @Bind(R.id.FragmentRepoDetail_ContentView)
     LinearLayout mContentView;
+    @Bind(R.id.FragmentRepoDetail_TextView_Description)
+    TextView mTextViewDescription;
+    @Bind(R.id.FragmentRepoDetail_TextView_Url)
+    TextView mTextViewUrl;
     //endregion
 
     //region Default constructor
@@ -96,7 +98,9 @@ public class FragmentRepoDetail
     @NonNull
     @Override
     public PresenterRepoDetail createPresenter() {
-        return new PresenterRepoDetail();
+        final ApplicationAndroidStarterComponent loComponent = ApplicationAndroidStarter.sharedApplication().componentApplication();
+        final MvpRepoDetailComponent loRepoDetailComponent = loComponent.plusMvpRepoDetailComponent(new MvpRepoDetail.Module());
+        return loRepoDetailComponent.presenterRepoDetail();
     }
     //endregion
 
@@ -122,7 +126,7 @@ public class FragmentRepoDetail
     }
 
     @Override
-    public void setData(final RepoDetailMvp.Model poData) {
+    public void setData(final MvpRepoDetail.Model poData) {
         configureViewWithRepo(poData.repo);
 
         final Activity loActivity = this.getActivity();

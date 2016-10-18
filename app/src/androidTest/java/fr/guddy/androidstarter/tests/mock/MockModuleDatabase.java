@@ -11,7 +11,7 @@ import fr.guddy.androidstarter.di.modules.ModuleDatabase;
 import fr.guddy.androidstarter.persistence.DatabaseHelperAndroidStarter;
 
 @Module
-public class MockModuleDatabase extends ModuleDatabase{
+public class MockModuleDatabase extends ModuleDatabase {
 
     @Provides
     @Singleton

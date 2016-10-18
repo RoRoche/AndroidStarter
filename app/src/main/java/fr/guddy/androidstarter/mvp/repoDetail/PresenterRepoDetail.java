@@ -1,36 +1,31 @@
 package fr.guddy.androidstarter.mvp.repoDetail;
 
+import android.support.annotation.NonNull;
+
 import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
 
 import javax.inject.Inject;
 
-import autodagger.AutoInjector;
-import fr.guddy.androidstarter.ApplicationAndroidStarter;
-import fr.guddy.androidstarter.persistence.dao.DAORepo;
+import autodagger.AutoExpose;
 import fr.guddy.androidstarter.persistence.entities.RepoEntity;
-import rx.Observable;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-@AutoInjector(ApplicationAndroidStarter.class)
-public final class PresenterRepoDetail extends MvpBasePresenter<RepoDetailMvp.View> implements RepoDetailMvp.Presenter {
-
-    //region Injected fields
-    @Inject
-    DAORepo daoRepo;
-    //endregion
+@AutoExpose(MvpRepoDetail.class)
+public final class PresenterRepoDetail extends MvpBasePresenter<MvpRepoDetail.View> implements MvpRepoDetail.Presenter {
 
     //region Fields
+    private final MvpRepoDetail.Interactor mInteractor;
     private Subscription mSubscriptionGetRepo;
     //endregion
 
     //region Constructor
-    public PresenterRepoDetail() {
-        ApplicationAndroidStarter.sharedApplication().componentApplication().inject(this);
+    @Inject
+    public PresenterRepoDetail(@NonNull final MvpRepoDetail.Interactor poInteractor) {
+        mInteractor = poInteractor;
     }
     //endregion
-
 
     //region Overridden method
     @Override
@@ -44,31 +39,21 @@ public final class PresenterRepoDetail extends MvpBasePresenter<RepoDetailMvp.Vi
 
     //region Visible API
     public void loadRepo(final long plRepoId, final boolean pbPullToRefresh) {
-        final RepoDetailMvp.View loView = getView();
+        final MvpRepoDetail.View loView = getView();
         if (isViewAttached() && loView != null) {
             loView.showLoading(pbPullToRefresh);
         }
-        getRepo(plRepoId);
-    }
-    //endregion
 
-    //region Reactive job
-    private void getRepo(final long plRepoId) {
         unsubscribe();
 
-        final RepoDetailMvp.View loView = getView();
-        if (loView == null) {
-            return;
-        }
-
-        mSubscriptionGetRepo = rxGetRepo(plRepoId)
+        mSubscriptionGetRepo = mInteractor.getRepoById(plRepoId)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         // onNext
                         (final RepoEntity poRepo) -> {
                             if (isViewAttached()) {
-                                loView.setData(new RepoDetailMvp.Model(poRepo));
+                                loView.setData(new MvpRepoDetail.Model(poRepo));
                                 if (poRepo == null) {
                                     loView.showEmpty();
                                 } else {
@@ -86,12 +71,6 @@ public final class PresenterRepoDetail extends MvpBasePresenter<RepoDetailMvp.Vi
                         // onCompleted
                         this::unsubscribe
                 );
-    }
-    //endregion
-
-    //region Database job
-    private Observable<RepoEntity> rxGetRepo(final long plRepoId) {
-        return daoRepo.rxQueryForId(plRepoId);
     }
     //endregion
 

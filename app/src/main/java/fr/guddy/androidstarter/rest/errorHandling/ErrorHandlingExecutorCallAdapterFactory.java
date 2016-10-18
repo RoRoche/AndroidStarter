@@ -106,11 +106,9 @@ public class ErrorHandlingExecutorCallAdapterFactory extends CallAdapter.Factory
                 if (!loResponse.isSuccess()) {
                     throw RetrofitException.httpError(loResponse.raw().request().url().toString(), loResponse, mRetrofit);
                 }
-            }
-            catch (final IOException loIOException) {
+            } catch (final IOException loIOException) {
                 throw RetrofitException.networkError(loIOException);
-            }
-            catch (final Exception loException) {
+            } catch (final Exception loException) {
                 if (loException instanceof RetrofitException) { // Required if to throw directly already formatted exception.
                     throw loException;
                 } else {

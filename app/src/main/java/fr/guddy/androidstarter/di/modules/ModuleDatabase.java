@@ -36,7 +36,7 @@ public class ModuleDatabase {
         try {
             final ConnectionSource loConnectionSource = poDatabaseHelperAndroidStarter.getConnectionSource();
             final DatabaseTableConfig<RepoEntity> loTableConfig = DatabaseTableConfigUtil.fromClass(loConnectionSource, RepoEntity.class);
-            if(loTableConfig != null) {
+            if (loTableConfig != null) {
                 return new DAORepo(loConnectionSource, loTableConfig);
             } else {
                 return new DAORepo(loConnectionSource);

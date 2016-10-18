@@ -81,6 +81,6 @@ public class ModuleRest {
     @Provides
     @Singleton
     public PicassoModule providePicassoModule(@NonNull final Picasso poPicasso) {
-        return  new PicassoModule(poPicasso);
+        return new PicassoModule(poPicasso);
     }
 }

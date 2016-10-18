@@ -55,7 +55,7 @@ public class CellRepo extends BindableFrameLayout<RepoEntity> {
         mTextView.setText(poRepo.url);
 
         final RequestCreator loRequest = mPicasso.load(poRepo.avatarUrl);
-        if(loRequest != null) {
+        if (loRequest != null) {
             loRequest
                     .placeholder(R.drawable.git_icon)
                     .error(R.drawable.git_icon)
@@ -63,7 +63,7 @@ public class CellRepo extends BindableFrameLayout<RepoEntity> {
         }
 
         setOnClickListener((final View poView) ->
-                        notifyItemAction(ROW_PRESSED)
+                notifyItemAction(ROW_PRESSED)
         );
     }
 

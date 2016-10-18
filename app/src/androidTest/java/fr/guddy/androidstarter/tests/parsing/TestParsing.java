@@ -39,9 +39,9 @@ public class TestParsing {
 
     //region Test methods
     @Frutilla(
-            Given   = "A single GitHub repo from a JSON file",
-            When    = "Parsing this content with Jackson",
-            Then    = "It should have parsed a repo named \"git-consortium\""
+            Given = "A single GitHub repo from a JSON file",
+            When = "Parsing this content with Jackson",
+            Then = "It should have parsed a repo named \"git-consortium\""
     )
     @Test
     public void test_Parse_JSONRepo_ParsesRepoDTO() throws IOException {
@@ -70,9 +70,9 @@ public class TestParsing {
     }
 
     @Frutilla(
-            Given   = "Multiple GitHub repos from a JSON file",
-            When    = "Parsing this content with Jackson",
-            Then    = "It should have parsed a repo named \"git-consortium\""
+            Given = "Multiple GitHub repos from a JSON file",
+            When = "Parsing this content with Jackson",
+            Then = "It should have parsed a repo named \"git-consortium\""
     )
     @Test
     public void test_Parse_JSONArrayRepo_ParsesRepoAsArrayDTO() throws IOException {

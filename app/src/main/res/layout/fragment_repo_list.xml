@@ -12,6 +12,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/FragmentRepoList_TextView_Empty"
                 android:layout_width="match_parent"
@@ -27,9 +28,11 @@
         android:id="@+id/FragmentRepoList_SwipeRefreshLayout_Error"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/FragmentRepoList_TextView_Error"
                 android:layout_width="match_parent"
@@ -52,6 +55,7 @@
         android:id="@+id/FragmentRepoList_SwipeRefreshLayout_Content"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/FragmentRepoList_RecyclerView"
             android:layout_width="match_parent"

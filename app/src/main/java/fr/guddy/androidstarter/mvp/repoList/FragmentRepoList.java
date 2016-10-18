@@ -77,8 +77,8 @@ public class FragmentRepoList
 
     static final ButterKnife.Action<SwipeRefreshLayout> STOP_REFRESHING =
             (@NonNull final SwipeRefreshLayout poView, final int piIndex)
-            ->
-            poView.setRefreshing(false);
+                    ->
+                    poView.setRefreshing(false);
 
     private Switcher mSwitcher;
 

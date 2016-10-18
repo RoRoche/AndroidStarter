@@ -170,7 +170,6 @@
     <orderEntry type="library" exported="" scope="TEST" name="runner-0.4.1" level="project" />
     <orderEntry type="library" exported="" name="retrofit-2.0.0-beta4" level="project" />
     <orderEntry type="library" exported="" name="debugdrawer-commons-0.7.0" level="project" />
-    <orderEntry type="library" exported="" name="autodagger2-1.1" level="project" />
     <orderEntry type="library" exported="" name="dagger-2.0.2" level="project" />
     <orderEntry type="library" exported="" name="rxandroid-1.1.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="frutilla-0.7.1" level="project" />
@@ -197,12 +196,13 @@
     <orderEntry type="library" exported="" scope="TEST" name="objenesis-2.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-24.0.0-alpha2" level="project" />
     <orderEntry type="library" exported="" name="design-24.0.0-alpha2" level="project" />
+    <orderEntry type="library" exported="" name="autodagger2-1.2-SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="jackson-core-2.4.3" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="truth-0.28" level="project" />
     <orderEntry type="library" exported="" name="javax.inject-1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="rules-0.4.1" level="project" />
-    <orderEntry type="library" exported="" name="rxjava-1.1.1" level="project" />
     <orderEntry type="library" exported="" name="aspectjrt-1.8.6" level="project" />
+    <orderEntry type="library" exported="" name="rxjava-1.1.1" level="project" />
     <orderEntry type="library" exported="" name="jackson-databind-2.4.3" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="okhttp-ws-3.2.0" level="project" />
     <orderEntry type="library" exported="" name="ormlite-core-4.48" level="project" />

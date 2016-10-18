@@ -80,9 +80,9 @@ public class TestREST {
 
     //region Test methods
     @Frutilla(
-            Given   = "A single GitHub repo from a API",
-            When    = "Execute query",
-            Then    = "It should have got a repo named \"git-consortium\""
+            Given = "A single GitHub repo from a API",
+            When = "Execute query",
+            Then = "It should have got a repo named \"git-consortium\""
     )
     @Test
     public void test_CallSyncListRepos_WithOneRepo_ReturnsOneRepo() throws IOException {
@@ -119,9 +119,9 @@ public class TestREST {
     }
 
     @Frutilla(
-            Given   = "A single GitHub repo from a API",
-            When    = "Execute query asynchronously",
-            Then    = "It should have got a repo named \"git-consortium\""
+            Given = "A single GitHub repo from a API",
+            When = "Execute query asynchronously",
+            Then = "It should have got a repo named \"git-consortium\""
     )
     @Test
     public void test_CallAsyncListRepos_WithOneRepo_ReturnsOneRepo() throws IOException, InterruptedException {
