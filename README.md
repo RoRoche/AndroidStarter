@@ -10,6 +10,10 @@ A sample Android app using the MVP architecture.
 
 * [Android Weekly #204](http://androidweekly.net/issues/issue-204)
 
+## TODO
+
+- [ ] move from MVP to VIPER for `ListRepo` module
+
 ## See also
 
 * <https://github.com/RoRoche/AndroidStarterAlt>: an alternative project using 
