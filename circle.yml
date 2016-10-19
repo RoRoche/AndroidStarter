@@ -1,0 +1,34 @@
+# Build configuration file for Circle CI
+# needs to be named `circle.yml` and should be in the top level dir of the repo
+
+general:
+  artifacts:
+	- "~/build_output.zip" # Save APK's, Lint Results, and Test Results
+
+machine:
+  environment:
+    ANDROID_HOME: /usr/local/android-sdk-linux
+  java:
+    version: oraclejdk8
+
+dependencies:
+  cache_directories:
+    - ~/.android
+    - ~/android
+  override:
+    - (echo "Downloading Android SDK v24...")
+    - (source scripts/environmentSetup.sh && getAndroidSDK)
+
+test:
+  pre:
+    - $ANDROID_HOME/tools/emulator -avd testAVD -no-skin -no-audio -no-window:
+      background: true
+    - (./gradlew assembleDebug):
+      timeout: 360
+    - (source scripts/environmentSetup.sh && waitForAVD)
+  override:
+	- (echo "Running JUnit tests...")
+    - (./gradlew connectedAndroidTest --info):
+        timeout: 360
+	- zip -r ~/build_output.zip app/build/outputs/
+
