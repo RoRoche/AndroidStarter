@@ -2,6 +2,7 @@
 A sample Android app using the MVP architecture.
 
 [![Build Status](https://travis-ci.org/RoRoche/AndroidStarter.svg?branch=master)](https://travis-ci.org/RoRoche/AndroidStarter)
+[![Build Status](https://circleci.com/gh/RoRoche/AndroidStarter.svg?style=shield&circle-token=e1392aa8f9f0e28e84fcbe56e7799aa0dad35142)](https://circleci.com/gh/RoRoche/AndroidStarter)
 [![Build Status](https://www.bitrise.io/app/4bb734986df5e64f.svg?token=Qhm_4tcy5Zg8fO6YbsKGHQ&branch=master)](https://www.bitrise.io/app/4bb734986df5e64f)
 
 <http://roroche.github.io/AndroidStarter>
