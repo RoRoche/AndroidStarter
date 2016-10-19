@@ -3,7 +3,7 @@
 
 general:
   artifacts:
-	- "~/build_output.zip" # Save APK's, Lint Results, and Test Results
+    - "~/build_output.zip" # Save APK's, Lint Results, and Test Results
 
 machine:
   environment:
@@ -27,8 +27,8 @@ test:
       timeout: 360
     - (source environmentSetup.sh && waitForAVD)
   override:
-	- (echo "Running JUnit tests...")
+    - (echo "Running JUnit tests...")
     - (./gradlew connectedAndroidTest --info):
         timeout: 360
-	- zip -r ~/build_output.zip app/build/outputs/
+    - zip -r ~/build_output.zip app/build/outputs/
 
