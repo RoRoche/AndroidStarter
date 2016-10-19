@@ -13,6 +13,7 @@ function getAndroidSDK {
     echo y | android update sdk -u -a -t "extra-android-m2repository" &&
     echo y | android update sdk -u -a -t "extra-android-support" &&
     echo y | android update sdk -u -a -t "extra-google-m2repository" &&
+    echo y | android update sdk -a --no-ui --filter sys-img-armeabi-v7a-android-24 &&
     echo no | android create avd -n testAVD -f -t android-24 --abi default/armeabi-v7a &&
     touch $DEPS
   fi
