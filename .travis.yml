@@ -37,3 +37,6 @@ script:
   - android list target
   - ./gradlew build connectedCheck
   - ./gradlew test jacocoTestReport
+
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
