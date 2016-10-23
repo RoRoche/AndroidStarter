@@ -23,6 +23,8 @@ apply plugin: 'me.tatarka.retrolambda'
 
 apply plugin: 'ormgap'
 
+apply from: '../jacoco.gradle'
+
 //apply from: '../config/quality.gradle'
 
 repositories {
