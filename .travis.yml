@@ -39,3 +39,14 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+after_failure:
+  # Customize this line, 'app' is the specific app module name of this project. Shows log.
+  - export MODULE_NAME="app"
+  - export LOG_DIR="$(pwd)/${MODULE_NAME}/build/outputs/reports/androidTests/connected/"
+  - pwd && cd "${LOG_DIR:-.}" && pwd && ls -al
+  - sudo apt-get install -qq lynx && lynx --dump index.html > myIndex.log
+  - lynx --dump com.android.builder.testing.ConnectedDevice.html > myConnectedDevice.log
+  - lynx --dump com.android.builder.testing.html > myTesting.log
+  - for file in *.log; do echo "$file"; echo "====================="; cat "$file"; done || true
+  # TODO: Solve issue (timeout api-21) https://code.google.com/p/android/issues/detail?id=69735
