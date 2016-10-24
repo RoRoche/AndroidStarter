@@ -43,7 +43,7 @@ after_success:
 after_failure:
   # Customize this line, 'app' is the specific app module name of this project. Shows log.
   - export MODULE_NAME="app"
-  - export LOG_DIR="$(pwd)/${MODULE_NAME}/build/outputs/reports/androidTests/connected/"
+  - export LOG_DIR="$(pwd)/${MODULE_NAME}/build/reports/androidTests/connected/"
   - pwd && cd "${LOG_DIR:-.}" && pwd && ls -al
   - sudo apt-get install -qq lynx && lynx --dump index.html > myIndex.log
   - lynx --dump com.android.builder.testing.ConnectedDevice.html > myConnectedDevice.log
