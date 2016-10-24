@@ -21,7 +21,7 @@ import okhttp3.mockwebserver.MockWebServer;
 
 import static com.google.common.truth.Truth.assertThat;
 
-@org.junit.Ignore
+//@org.junit.Ignore
 @RunWith(FrutillaTestRunner.class)
 public class TestActivityRepoList extends AbstractRobotiumTestCase<ActivityRepoList> {
 
