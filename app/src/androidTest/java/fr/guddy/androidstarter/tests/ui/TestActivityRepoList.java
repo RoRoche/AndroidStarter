@@ -69,7 +69,7 @@ public class TestActivityRepoList extends AbstractRobotiumTestCase<ActivityRepoL
             When = "",
             Then = "It should display a repo named \"git-consortium\""
     )
-    @Test
+    @android.test.UiThreadTest
     public void test_ListRepos_WithOneRepo_DisplayListWithOnlyThisRepo() {
         Given:
         {
@@ -101,7 +101,7 @@ public class TestActivityRepoList extends AbstractRobotiumTestCase<ActivityRepoL
             When = "Click on its name",
             Then = "It should display the detail of this repo"
     )
-    @Test
+    @android.test.UiThreadTest
     public void test_ListRepos_ClickOnOneRepo_DisplayDetailWithOnlyThisRepo() {
         Given:
         {
@@ -135,7 +135,7 @@ public class TestActivityRepoList extends AbstractRobotiumTestCase<ActivityRepoL
             When = "Click on its name and on the back button",
             Then = "It should display the list"
     )
-    @Test
+    @android.test.UiThreadTest
     public void test_DetailRepos_ClickOnBack_DisplayListRepos() {
         Given:
         {
