@@ -8,6 +8,8 @@ general:
 machine:
   environment:
     ANDROID_HOME: /usr/local/android-sdk-linux
+    _JAVA_OPTIONS: "-Xms512m -Xmx1024m"
+    GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
   java:
     version: oraclejdk8
 
