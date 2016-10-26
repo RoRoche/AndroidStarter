@@ -129,40 +129,5 @@ public class TestActivityRepoList extends AbstractRobotiumTestCase<ActivityRepoL
             assertThat(lbFoundTheRepo).isTrue();
         }
     }
-
-    @Frutilla(
-            Given = "A single GitHub repo from the API",
-            When = "Click on its name and on the back button",
-            Then = "It should display the list"
-    )
-    @Test
-    public void test_DetailRepos_ClickOnBack_DisplayListRepos() {
-        Given:
-        {
-            final String lsOneRepoJSONData = mLocalifyClient.localify().loadRawFile(fr.guddy.androidstarter.test.R.raw.repos_octocat);
-            final MockResponse loMockResponseWithOneRepo = new MockResponse().setResponseCode(200);
-            loMockResponseWithOneRepo.setBody(lsOneRepoJSONData);
-            mMockWebServer.enqueue(loMockResponseWithOneRepo);
-            try {
-                mMockWebServer.start(4000);
-            } catch (@NonNull final Exception loException) {
-                loException.printStackTrace();
-            }
-            mActivity = mActivityTestRule.launchActivity(null);
-        }
-
-        When:
-        {
-            mSolo.clickOnText("git-consortium");
-            mSolo.goBack();
-        }
-
-        Then:
-        {
-            mSolo.assertCurrentActivity("should be on ActivityRepoList", ActivityRepoList.class);
-            final boolean lbFoundTheRepo = mSolo.waitForText("git-consortium", 1, 5000L, true);
-            assertThat(lbFoundTheRepo).isTrue();
-        }
-    }
     //endregion
 }
