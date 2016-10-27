@@ -6,6 +6,7 @@ A sample Android app using the MVP architecture.
 [![Build Status](https://www.bitrise.io/app/4bb734986df5e64f.svg?token=Qhm_4tcy5Zg8fO6YbsKGHQ&branch=master)](https://www.bitrise.io/app/4bb734986df5e64f)
 [![Code coverage](https://codecov.io/github/RoRoche/AndroidStarter/coverage.svg?branch=master)](https://codecov.io/gh/RoRoche/AndroidStarter)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a21bb4740cba4ce1b166d3a7c3578c0e)](https://www.codacy.com/app/romain-rochegude_2/AndroidStarter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=RoRoche/AndroidStarter&amp;utm_campaign=Badge_Grade)
+[![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23204-green.svg)](http://androidweekly.net/issues/issue-204)
 
 <http://roroche.github.io/AndroidStarter>
 
