@@ -18,13 +18,13 @@ dependencies:
     - ~/.android
     - ~/android
   override:
-    - (echo "Downloading Android SDK v24...")
+    - (echo "Downloading Android SDK v25...")
     - (source environmentSetup.sh && getAndroidSDK)
 
 test:
   override:
     # start the emulator
-    - emulator -avd circleci-android22 -no-audio -no-window:
+    - emulator -avd circleci-android25 -no-audio -no-window:
         background: true
         parallel: true
     # wait for it to have booted
