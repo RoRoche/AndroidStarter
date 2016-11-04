@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
+import fr.guddy.androidstarter.di.modules.ModuleAsync;
 import fr.guddy.androidstarter.di.modules.ModuleBus;
 import fr.guddy.androidstarter.di.modules.ModuleEnvironment;
 import fr.guddy.androidstarter.rest.GitHubService;
@@ -34,7 +35,6 @@ import retrofit2.Response;
 import static com.google.common.truth.Truth.assertThat;
 
 @RunWith(FrutillaTestRunner.class)
-@LargeTest
 public class TestREST {
 
     //region Fields
@@ -42,6 +42,7 @@ public class TestREST {
     private Context mContextTarget;
     private CountDownLatch mCountDownLatch;
     private QueryGetRepos.EventQueryGetReposDidFinish mEvent;
+    private ModuleAsync mModuleAsync;
     private ModuleBus mModuleBus;
     private ModuleEnvironment mModuleEnvironment;
     private MockModuleRest mModuleRest;
@@ -53,6 +54,7 @@ public class TestREST {
     public void setUp() throws Exception {
         mContextTarget = InstrumentationRegistry.getTargetContext();
 
+        mModuleAsync = MockApplication.sharedMockApplication().getModuleAsync();
         mModuleBus = MockApplication.sharedMockApplication().getModuleBus();
         mModuleRest = MockApplication.sharedMockApplication().getModuleRest();
         mModuleRest.setUp();
@@ -140,7 +142,7 @@ public class TestREST {
 
         When:
         {
-            mModuleRest.provideQueryFactory().startQueryGetRepos(mContextTarget, "test", false);
+            mModuleAsync.provideJobManager(mContextTarget).addJobInBackground(new QueryGetRepos("test", false));
             mCountDownLatch = new CountDownLatch(1);
             mCountDownLatch.await();
         }

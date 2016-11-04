@@ -8,7 +8,7 @@ import com.squareup.picasso.Picasso;
 import dagger.Module;
 import fr.guddy.androidstarter.di.modules.ModuleRest;
 import fr.guddy.androidstarter.rest.GitHubService;
-import fr.guddy.androidstarter.rest.errorHandling.ErrorHandlingExecutorCallAdapterFactory;
+import fr.guddy.androidstarter.rest.error_handling.ErrorHandlingExecutorCallAdapterFactory;
 import io.palaima.debugdrawer.picasso.PicassoModule;
 import okhttp3.OkHttpClient;
 import okhttp3.mockwebserver.MockWebServer;

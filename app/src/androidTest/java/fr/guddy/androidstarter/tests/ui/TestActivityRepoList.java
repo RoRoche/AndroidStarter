@@ -12,8 +12,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import fr.guddy.androidstarter.mvp.repoDetail.ActivityRepoDetail;
-import fr.guddy.androidstarter.mvp.repoList.ActivityRepoList;
+import fr.guddy.androidstarter.mvp.repo_detail.ActivityRepoDetail;
+import fr.guddy.androidstarter.mvp.repo_list.ActivityRepoList;
 import fr.guddy.androidstarter.tests.mock.MockApplication;
 import fr.guddy.androidstarter.tests.mock.MockModuleRest;
 import okhttp3.mockwebserver.MockResponse;

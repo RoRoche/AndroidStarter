@@ -1,4 +1,4 @@
-package fr.guddy.androidstarter.mvp.repoDetail;
+package fr.guddy.androidstarter.mvp.repo_detail;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import fr.guddy.androidstarter.R;
-import fr.guddy.androidstarter.mvp.repoList.ActivityRepoList;
+import fr.guddy.androidstarter.mvp.repo_list.ActivityRepoList;
 import se.emilsjolander.intentbuilder.Extra;
 import se.emilsjolander.intentbuilder.IntentBuilder;
 
@@ -23,7 +23,7 @@ public class ActivityRepoDetail extends AppCompatActivity {
     //endregion
 
     //region Injected views
-    @Bind(R.id.ActivityRepoDetail_Toolbar)
+    @BindView(R.id.ActivityRepoDetail_Toolbar)
     Toolbar mToolbar;
     //endregion
 

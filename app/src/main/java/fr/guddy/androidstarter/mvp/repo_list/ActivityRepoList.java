@@ -1,4 +1,4 @@
-package fr.guddy.androidstarter.mvp.repoList;
+package fr.guddy.androidstarter.mvp.repo_list;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 import fr.guddy.androidstarter.ApplicationAndroidStarter;
 import fr.guddy.androidstarter.IEnvironment;
 import fr.guddy.androidstarter.R;
-import fr.guddy.androidstarter.mvp.repoDetail.ActivityRepoDetailIntentBuilder;
+import fr.guddy.androidstarter.mvp.repo_detail.ActivityRepoDetailIntentBuilder;
 import io.palaima.debugdrawer.DebugDrawer;
 import io.palaima.debugdrawer.commons.BuildModule;
 import io.palaima.debugdrawer.commons.DeviceModule;

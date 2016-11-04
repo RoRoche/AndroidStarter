@@ -1,4 +1,4 @@
-package fr.guddy.androidstarter.mvp.repoDetail;
+package fr.guddy.androidstarter.mvp.repo_detail;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,8 +16,9 @@ import com.hannesdorfmann.fragmentargs.annotation.Arg;
 import com.hannesdorfmann.fragmentargs.annotation.FragmentWithArgs;
 import com.hannesdorfmann.mosby.mvp.MvpFragment;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import fr.guddy.androidstarter.ApplicationAndroidStarter;
 import fr.guddy.androidstarter.ApplicationAndroidStarterComponent;
 import fr.guddy.androidstarter.R;
@@ -36,20 +37,21 @@ public class FragmentRepoDetail
 
     //region Fields
     private Switcher mSwitcher;
+    private Unbinder mUnbinder;
     //endregion
 
     //region Injected views
-    @Bind(R.id.FragmentRepoDetail_TextView_Empty)
+    @BindView(R.id.FragmentRepoDetail_TextView_Empty)
     TextView mTextViewEmpty;
-    @Bind(R.id.FragmentRepoDetail_TextView_Error)
+    @BindView(R.id.FragmentRepoDetail_TextView_Error)
     TextView mTextViewError;
-    @Bind(R.id.FragmentRepoDetail_ProgressBar_Loading)
+    @BindView(R.id.FragmentRepoDetail_ProgressBar_Loading)
     ProgressBar mProgressBarLoading;
-    @Bind(R.id.FragmentRepoDetail_ContentView)
+    @BindView(R.id.FragmentRepoDetail_ContentView)
     LinearLayout mContentView;
-    @Bind(R.id.FragmentRepoDetail_TextView_Description)
+    @BindView(R.id.FragmentRepoDetail_TextView_Description)
     TextView mTextViewDescription;
-    @Bind(R.id.FragmentRepoDetail_TextView_Url)
+    @BindView(R.id.FragmentRepoDetail_TextView_Url)
     TextView mTextViewUrl;
     //endregion
 
@@ -75,7 +77,7 @@ public class FragmentRepoDetail
     public void onViewCreated(final View poView, final Bundle poSavedInstanceState) {
         super.onViewCreated(poView, poSavedInstanceState);
 
-        ButterKnife.bind(this, poView);
+        mUnbinder = ButterKnife.bind(this, poView);
 
         mSwitcher = new Switcher.Builder()
                 .withEmptyView(mTextViewEmpty)
@@ -90,7 +92,7 @@ public class FragmentRepoDetail
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.unbind(this);
+        mUnbinder.unbind();
     }
     //endregion
 

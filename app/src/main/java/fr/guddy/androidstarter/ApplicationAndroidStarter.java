@@ -20,7 +20,7 @@ import fr.guddy.androidstarter.di.modules.ModuleDatabase;
 import fr.guddy.androidstarter.di.modules.ModuleEnvironment;
 import fr.guddy.androidstarter.di.modules.ModuleRest;
 import fr.guddy.androidstarter.di.modules.ModuleTransformer;
-import fr.guddy.androidstarter.mvp.repoDetail.MvpRepoDetail;
+import fr.guddy.androidstarter.mvp.repo_detail.MvpRepoDetail;
 
 @AutoComponent(
         modules = {

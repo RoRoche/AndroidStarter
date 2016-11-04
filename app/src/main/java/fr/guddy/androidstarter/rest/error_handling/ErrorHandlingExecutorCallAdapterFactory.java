@@ -1,4 +1,4 @@
-package fr.guddy.androidstarter.rest.errorHandling;
+package fr.guddy.androidstarter.rest.error_handling;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -103,7 +103,7 @@ public class ErrorHandlingExecutorCallAdapterFactory extends CallAdapter.Factory
             try {
                 loResponse = mDelegate.execute();
 
-                if (!loResponse.isSuccess()) {
+                if (!loResponse.isSuccessful()) {
                     throw RetrofitException.httpError(loResponse.raw().request().url().toString(), loResponse, mRetrofit);
                 }
             } catch (final IOException loIOException) {
@@ -154,7 +154,7 @@ public class ErrorHandlingExecutorCallAdapterFactory extends CallAdapter.Factory
 
         @Override
         public void onResponse(final Call<T> poCall, final Response<T> poResponse) {
-            if (poResponse.isSuccess()) {
+            if (poResponse.isSuccessful()) {
                 mCallbackExecutor.execute(() -> mDelegate.onResponse(poCall, poResponse));
             } else {
                 mCallbackExecutor.execute(() -> mDelegate.onFailure(poCall, RetrofitException.httpError(poResponse.raw().request().url().toString(), poResponse, mRetrofit)));

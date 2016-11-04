@@ -1,4 +1,4 @@
-package fr.guddy.androidstarter.rest.errorHandling;
+package fr.guddy.androidstarter.rest.error_handling;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;

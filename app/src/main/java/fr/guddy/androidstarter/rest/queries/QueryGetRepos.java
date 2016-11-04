@@ -1,5 +1,9 @@
 package fr.guddy.androidstarter.rest.queries;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
+import com.birbit.android.jobqueue.RetryConstraint;
 import com.j256.ormlite.dao.Dao;
 import com.mobandme.android.transformer.Transformer;
 import com.orhanobut.logger.Logger;
@@ -46,7 +50,7 @@ public class QueryGetRepos extends AbstractQuery {
     //endregion
 
     //region Constructor matching super
-    protected QueryGetRepos(final String psUser, final boolean pbPullToRefresh) {
+    public QueryGetRepos(final String psUser, final boolean pbPullToRefresh) {
         super(Priority.MEDIUM);
         user = psUser;
         pullToRefresh = pbPullToRefresh;

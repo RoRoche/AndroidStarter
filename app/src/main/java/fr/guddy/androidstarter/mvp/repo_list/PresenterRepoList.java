@@ -1,8 +1,9 @@
-package fr.guddy.androidstarter.mvp.repoList;
+package fr.guddy.androidstarter.mvp.repo_list;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.birbit.android.jobqueue.JobManager;
 import com.hannesdorfmann.mosby.mvp.MvpBasePresenter;
 import com.orhanobut.logger.Logger;
 import com.squareup.otto.Subscribe;
@@ -17,7 +18,6 @@ import fr.guddy.androidstarter.BuildConfig;
 import fr.guddy.androidstarter.bus.BusManager;
 import fr.guddy.androidstarter.persistence.dao.DAORepo;
 import fr.guddy.androidstarter.persistence.entities.RepoEntity;
-import fr.guddy.androidstarter.rest.queries.QueryFactory;
 import fr.guddy.androidstarter.rest.queries.QueryGetRepos;
 import hugo.weaving.DebugLog;
 import rx.Observable;
@@ -38,7 +38,7 @@ public class PresenterRepoList extends MvpBasePresenter<RepoListMvp.View> implem
     @Inject
     DAORepo daoRepo;
     @Inject
-    QueryFactory queryFactory;
+    JobManager jobManager;
     //endregion
 
     //region Fields
@@ -140,7 +140,7 @@ public class PresenterRepoList extends MvpBasePresenter<RepoListMvp.View> implem
             loView.showLoading(pbPullToRefresh);
         }
 
-        queryFactory.startQueryGetRepos(context, "RoRoche", pbPullToRefresh);
+        jobManager.addJobInBackground(new QueryGetRepos("RoRoche", pbPullToRefresh));
     }
     //endregion
 

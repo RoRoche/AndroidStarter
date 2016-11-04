@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".mvp.repoList.ActivityRepoList"
+            android:name=".mvp.repo_list.ActivityRepoList"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -25,20 +25,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".mvp.repoDetail.ActivityRepoDetail"
+            android:name=".mvp.repo_detail.ActivityRepoDetail"
             android:label="@string/title_repo_detail"
-            android:parentActivityName=".mvp.repoList.ActivityRepoList"
+            android:parentActivityName=".mvp.repo_list.ActivityRepoList"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".mvp.repoList.ActivityRepoList"/>
+                android:value=".mvp.repo_list.ActivityRepoList"/>
         </activity>
-
-        <service
-            android:name=".services.ServiceQueryExecutor"
-            android:enabled="true"
-            android:exported="false"
-            />
     </application>
 
 </manifest>

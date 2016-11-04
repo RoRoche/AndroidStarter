@@ -1,11 +1,11 @@
 <fragment
     android:id="@+id/ActivityRepoList"
-    android:name="fr.guddy.androidstarter.mvp.repoList.FragmentRepoList"
+    android:name="fr.guddy.androidstarter.mvp.repo_list.FragmentRepoList"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
-    tools:context="fr.guddy.androidstarter.ui.activities.ActivityRepoList"
+    tools:context=".mvp.repo_list.ActivityRepoList"
     tools:layout="@android:layout/list_content"/>

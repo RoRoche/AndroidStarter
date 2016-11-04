@@ -1,4 +1,4 @@
-package fr.guddy.androidstarter.mvp.repoList;
+package fr.guddy.androidstarter.mvp.repo_list;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

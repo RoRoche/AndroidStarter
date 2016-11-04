@@ -3,8 +3,8 @@ package fr.guddy.androidstarter.di.modules;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.path.android.jobqueue.JobManager;
-import com.path.android.jobqueue.config.Configuration;
+import com.birbit.android.jobqueue.JobManager;
+import com.birbit.android.jobqueue.config.Configuration;
 
 import javax.inject.Singleton;
 
@@ -23,6 +23,6 @@ public class ModuleAsync {
                 .loadFactor(3) //3 jobs per consumer
                 .consumerKeepAlive(120) //wait 2 minute
                 .build();
-        return new JobManager(poContext, loConfiguration);
+        return new JobManager(loConfiguration);
     }
 }

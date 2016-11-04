@@ -1,8 +1,12 @@
 package fr.guddy.androidstarter.rest.queries;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
+import com.birbit.android.jobqueue.Job;
+import com.birbit.android.jobqueue.Params;
+import com.birbit.android.jobqueue.RetryConstraint;
 import com.orhanobut.logger.Logger;
-import com.path.android.jobqueue.Job;
-import com.path.android.jobqueue.Params;
 
 import fr.guddy.androidstarter.BuildConfig;
 import fr.guddy.androidstarter.bus.event.AbstractEventQueryDidFinish;
@@ -69,7 +73,12 @@ public abstract class AbstractQuery extends Job {
     }
 
     @Override
-    protected void onCancel() {
+    protected void onCancel(final int cancelReason, @Nullable final Throwable poThrowable) {
+    }
+
+    @Override
+    protected RetryConstraint shouldReRunOnThrowable(@NonNull final Throwable poThrowable, final int piRunCount, final int piMaxRunCount) {
+        return null;
     }
 
     @DebugLog

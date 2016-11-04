@@ -1,4 +1,4 @@
-package fr.guddy.androidstarter.mvp.repoList;
+package fr.guddy.androidstarter.mvp.repo_list;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,8 +18,10 @@ import com.orhanobut.logger.Logger;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import fr.guddy.androidstarter.BuildConfig;
 import fr.guddy.androidstarter.R;
 import fr.guddy.androidstarter.persistence.entities.RepoEntity;
@@ -46,22 +48,22 @@ public class FragmentRepoList
     //endregion
 
     //region Injected views
-    @Bind(R.id.FragmentRepoList_TextView_Empty)
+    @BindView(R.id.FragmentRepoList_TextView_Empty)
     TextView mTextViewEmpty;
-    @Bind(R.id.FragmentRepoList_ProgressBar_Loading)
+    @BindView(R.id.FragmentRepoList_ProgressBar_Loading)
     ProgressBar mProgressBarLoading;
-    @Bind(R.id.FragmentRepoList_RecyclerView)
+    @BindView(R.id.FragmentRepoList_RecyclerView)
     RecyclerView mRecyclerView;
-    @Bind(R.id.FragmentRepoList_TextView_Error)
+    @BindView(R.id.FragmentRepoList_TextView_Error)
     TextView mTextViewError;
 
-    @Bind(R.id.FragmentRepoList_SwipeRefreshLayout_Empty)
+    @BindView(R.id.FragmentRepoList_SwipeRefreshLayout_Empty)
     SwipeRefreshLayout mSwipeRefreshLayoutEmpty;
-    @Bind(R.id.FragmentRepoList_SwipeRefreshLayout_Error)
+    @BindView(R.id.FragmentRepoList_SwipeRefreshLayout_Error)
     SwipeRefreshLayout mSwipeRefreshLayoutError;
-    @Bind(R.id.FragmentRepoList_SwipeRefreshLayout_Content)
+    @BindView(R.id.FragmentRepoList_SwipeRefreshLayout_Content)
     SwipeRefreshLayout mSwipeRefreshLayoutContent;
-    @Bind({
+    @BindViews({
             R.id.FragmentRepoList_SwipeRefreshLayout_Empty,
             R.id.FragmentRepoList_SwipeRefreshLayout_Error,
             R.id.FragmentRepoList_SwipeRefreshLayout_Content
@@ -83,6 +85,7 @@ public class FragmentRepoList
     private Switcher mSwitcher;
 
     private Callbacks mCallbacks = sDummyCallbacks;
+    private Unbinder mUnbinder;
     //endregion
 
     //region Constructor
@@ -116,7 +119,7 @@ public class FragmentRepoList
         super.onViewCreated(poView, poSavedInstanceState);
         Icepick.restoreInstanceState(this, poSavedInstanceState);
 
-        ButterKnife.bind(this, poView);
+        mUnbinder = ButterKnife.bind(this, poView);
 
         ButterKnife.apply(mSwipeRefreshLayouts, SET_LISTENER, this);
 
@@ -144,7 +147,7 @@ public class FragmentRepoList
     public void onDestroyView() {
         super.onDestroyView();
 
-        ButterKnife.unbind(this);
+        mUnbinder.unbind();
     }
 
     @Override

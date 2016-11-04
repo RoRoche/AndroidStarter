@@ -18,6 +18,7 @@ public class MockApplication extends ApplicationAndroidStarter {
 
     //region Singleton
     protected static MockApplication sSharedMockApplication;
+    private ModuleAsync mModuleAsync;
 
     public static MockApplication sharedMockApplication() {
         return sSharedMockApplication;
@@ -35,12 +36,13 @@ public class MockApplication extends ApplicationAndroidStarter {
     //region Overridden method
     @Override
     protected void buildComponent() {
+        mModuleAsync = new ModuleAsync();
         mModuleBus = new ModuleBus();
         mModuleRest = new MockModuleRest();
         mModuleEnvironment = new MockModuleEnvironment();
 
         mComponentApplication = DaggerApplicationAndroidStarterComponent.builder()
-                .moduleAsync(new ModuleAsync())
+                .moduleAsync(mModuleAsync)
                 .moduleBus(mModuleBus)
                 .moduleContext(new ModuleContext(getApplicationContext()))
                 .moduleDatabase(new MockModuleDatabase())
@@ -52,6 +54,10 @@ public class MockApplication extends ApplicationAndroidStarter {
     //endregion
 
     //region Getters
+    public ModuleAsync getModuleAsync() {
+        return mModuleAsync;
+    }
+
     public MockModuleRest getModuleRest() {
         return mModuleRest;
     }

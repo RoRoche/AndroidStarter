@@ -21,7 +21,6 @@ import fr.guddy.androidstarter.test.R;
 import static com.google.common.truth.Truth.assertThat;
 
 @RunWith(FrutillaTestRunner.class)
-@LargeTest
 public class TestParsing {
 
     //region Fields

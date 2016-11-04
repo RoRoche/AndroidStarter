@@ -1,4 +1,4 @@
-package fr.guddy.androidstarter.mvp.repoDetail;
+package fr.guddy.androidstarter.mvp.repo_detail;
 
 import android.support.annotation.NonNull;
 
