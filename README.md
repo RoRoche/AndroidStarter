@@ -1,12 +1,13 @@
 # AndroidStarter
+
 A sample Android app using the MVP architecture, using :
-- Dagger2
-- mosby
-- retrofit2
-- Jackson
-- ormlite
-- RxJava
-- otto
+- [Dagger2](https://google.github.io/dagger/)
+- [mosby](http://hannesdorfmann.com/mosby/)
+- [retrofit2](https://square.github.io/retrofit/)
+- [Jackson](https://github.com/FasterXML/jackson)
+- [ormlite](http://ormlite.com/)
+- [RxJava](https://github.com/ReactiveX/RxJava)
+- [otto](http://square.github.io/otto/)
 
 [![Build Status](https://travis-ci.org/RoRoche/AndroidStarter.svg?branch=master)](https://travis-ci.org/RoRoche/AndroidStarter)
 [![Build Status](https://circleci.com/gh/RoRoche/AndroidStarter.svg?style=shield&circle-token=e1392aa8f9f0e28e84fcbe56e7799aa0dad35142)](https://circleci.com/gh/RoRoche/AndroidStarter)
