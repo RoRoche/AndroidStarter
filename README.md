@@ -10,6 +10,7 @@ A sample Android app using the MVP architecture, using :
 - [otto](http://square.github.io/otto/)
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AndroidStarter-brightgreen.svg?style=flat)](https://android-arsenal.com/details/3/4936)
+[![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23204-green.svg)](http://androidweekly.net/issues/issue-204)
 
 [![Build Status](https://travis-ci.org/RoRoche/AndroidStarter.svg?branch=master)](https://travis-ci.org/RoRoche/AndroidStarter)
 [![Build Status](https://circleci.com/gh/RoRoche/AndroidStarter.svg?style=shield&circle-token=e1392aa8f9f0e28e84fcbe56e7799aa0dad35142)](https://circleci.com/gh/RoRoche/AndroidStarter)
@@ -18,7 +19,6 @@ A sample Android app using the MVP architecture, using :
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a21bb4740cba4ce1b166d3a7c3578c0e)](https://www.codacy.com/app/romain-rochegude_2/AndroidStarter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=RoRoche/AndroidStarter&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/4fc1ec4a-e342-489d-a8a8-d0dce90d36e2)](https://codebeat.co/projects/github-com-roroche-androidstarter)
 [![Dependency Status](https://www.versioneye.com/user/projects/5818f46e89f0a91dbb44ae9d/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5818f46e89f0a91dbb44ae9d)
-[![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23204-green.svg)](http://androidweekly.net/issues/issue-204)
 
 <http://roroche.github.io/AndroidStarter>
 
