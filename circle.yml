@@ -8,8 +8,6 @@ general:
 machine:
   environment:
     ANDROID_HOME: /usr/local/android-sdk-linux
-    _JAVA_OPTIONS: "-Xms512m -Xmx1024m"
-    GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
   java:
     version: oraclejdk8
 
@@ -22,22 +20,15 @@ dependencies:
     - (source environmentSetup.sh && getAndroidSDK)
 
 test:
-  override:
-    # start the emulator
-    - emulator -avd circleci-android25 -no-audio -no-window:
+  pre:
+    - $ANDROID_HOME/tools/emulator -avd testAVD -no-skin -no-audio -no-window:
         background: true
-        parallel: true
-    # wait for it to have booted
-    - circle-android wait-for-boot
-    # unlock the emulator screen
-    - sleep 30
-    - adb shell input keyevent 82
-    # run tests  against the emulator.
-    - ./gradlew connectedAndroidTest
-    # run jUnit tests
-    # - ./gradlew test
-    # copy the build outputs to artifacts
-    - cp -r app/build/outputs $CIRCLE_ARTIFACTS
-    # copy the test results to the test results directory.
-    - cp -r app/build/outputs/androidTest-results/* $CIRCLE_TEST_REPORTS
+    - (./gradlew assembleDebug):
+        timeout: 360
+    - (source environmentSetup.sh && waitForAVD)
+  override:
+    - (echo "Running JUnit tests...")
+    - (./gradlew connectedAndroidTest --info):
+        timeout: 360
+    - zip -r ~/build_output.zip app/build/outputs/
 
