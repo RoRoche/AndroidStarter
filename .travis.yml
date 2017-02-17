@@ -9,7 +9,7 @@ android:
     - tools # see https://github.com/travis-ci/travis-ci/issues/6040#issuecomment-219367943)
     - platform-tools
     - build-tools-23.0.3
-    - android-21
+    - android-25
     - extra-android-support
     - extra-android-m2repository
     # Specify at least one system image,
@@ -29,16 +29,10 @@ before_install:
 
 before_script:
   - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
-  - emulator -avd test -no-audio -no-skin -no-window &
+  - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
 
 script:
-  - ./gradlew build connectedCheck --stacktrace
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
-env:
-  global:
-    - ADB_INSTALL_TIMEOUT=8
+  - android list target
+  - ./gradlew build connectedCheck
