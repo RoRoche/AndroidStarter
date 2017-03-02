@@ -100,8 +100,8 @@ dependencies {
 
     compile 'com.android.support:recyclerview-v7:25.1.1'
 
-    compile 'com.jakewharton:butterknife:8.4.0'
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'com.jakewharton:butterknife:8.5.1'
+    apt 'com.jakewharton:butterknife-compiler:8.5.1'
 
     compile 'com.hannesdorfmann.fragmentargs:annotation:3.0.2'
     apt 'com.hannesdorfmann.fragmentargs:processor:3.0.2'
@@ -118,14 +118,14 @@ dependencies {
         exclude module: 'appcompat-v7'
     }
 
-    compile 'com.squareup.okhttp3:okhttp:3.5.0'
-    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.5.0'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-jackson:2.1.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.5.0'
+    compile 'com.squareup.okhttp3:okhttp:3.6.0'
+    compile 'com.squareup.okhttp3:okhttp-urlconnection:3.6.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-jackson:2.2.0'
 
-    compile 'com.google.dagger:dagger:2.8'
-    apt 'com.google.dagger:dagger-compiler:2.8'
+    compile 'com.google.dagger:dagger:2.9'
+    apt 'com.google.dagger:dagger-compiler:2.9'
 
     provided 'javax.annotation:jsr250-api:1.0'
 
@@ -135,7 +135,7 @@ dependencies {
     compile 'com.github.orhanobut:logger:1.12'
 
     compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.2.5'
+    compile 'io.reactivex:rxjava:1.2.7'
 
     compile 'com.mobandme:android-transformer:1.2'
     provided 'com.mobandme:android-transformer-compiler:1.2'
@@ -178,12 +178,12 @@ dependencies {
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support.test:rules:0.5'
     androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.6.3'
-    androidTestCompile 'com.squareup.okhttp3:mockwebserver:3.5.0'
-    androidTestCompile 'com.google.truth:truth:0.31'
+    androidTestCompile 'com.squareup.okhttp3:mockwebserver:3.6.0'
+    androidTestCompile 'com.google.truth:truth:0.32'
     androidTestCompile 'com.github.ignaciotcrespo:frutilla:0.7.1'
     androidTestCompile 'org.mockito:mockito-core:2.0.17-beta'
     androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
-    androidTestCompile 'com.squareup.okhttp3:okhttp-testing-support:3.5.0'
+    androidTestCompile 'com.squareup.okhttp3:okhttp-testing-support:3.6.0'
 
     // Optional -- Hamcrest library
     androidTestCompile 'org.hamcrest:hamcrest-library:1.3'

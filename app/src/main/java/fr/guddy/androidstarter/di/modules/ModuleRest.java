@@ -13,7 +13,6 @@ import dagger.Module;
 import dagger.Provides;
 import fr.guddy.androidstarter.IEnvironment;
 import fr.guddy.androidstarter.rest.GitHubService;
-import fr.guddy.androidstarter.rest.error_handling.ErrorHandlingExecutorCallAdapterFactory;
 import io.palaima.debugdrawer.picasso.PicassoModule;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -40,7 +39,6 @@ public class ModuleRest {
                 .baseUrl("https://api.github.com")
                 .client(poOkHttpClient)
                 .addConverterFactory(JacksonConverterFactory.create())
-                .addCallAdapterFactory(new ErrorHandlingExecutorCallAdapterFactory(new ErrorHandlingExecutorCallAdapterFactory.MainThreadExecutor()))
                 .build();
         return loRetrofit.create(GitHubService.class);
     }

@@ -8,7 +8,6 @@ import com.squareup.picasso.Picasso;
 import dagger.Module;
 import fr.guddy.androidstarter.di.modules.ModuleRest;
 import fr.guddy.androidstarter.rest.GitHubService;
-import fr.guddy.androidstarter.rest.error_handling.ErrorHandlingExecutorCallAdapterFactory;
 import io.palaima.debugdrawer.picasso.PicassoModule;
 import okhttp3.OkHttpClient;
 import okhttp3.mockwebserver.MockWebServer;
@@ -38,7 +37,6 @@ public class MockModuleRest extends ModuleRest {
                 .baseUrl(mMockWebServer.url("/").toString())
                 .client(poOkHttpClient)
                 .addConverterFactory(JacksonConverterFactory.create())
-                .addCallAdapterFactory(new ErrorHandlingExecutorCallAdapterFactory(new ErrorHandlingExecutorCallAdapterFactory.MainThreadExecutor()))
                 .build();
         return loRetrofit.create(GitHubService.class);
     }
