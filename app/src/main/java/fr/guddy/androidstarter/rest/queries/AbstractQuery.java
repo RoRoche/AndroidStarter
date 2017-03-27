@@ -8,9 +8,12 @@ import com.birbit.android.jobqueue.Params;
 import com.birbit.android.jobqueue.RetryConstraint;
 import com.orhanobut.logger.Logger;
 
+import java.net.HttpURLConnection;
+
 import fr.guddy.androidstarter.BuildConfig;
 import fr.guddy.androidstarter.bus.event.AbstractEventQueryDidFinish;
 import hugo.weaving.DebugLog;
+import retrofit2.Response;
 
 public abstract class AbstractQuery extends Job {
     private static final String TAG = AbstractQuery.class.getSimpleName();
@@ -57,6 +60,8 @@ public abstract class AbstractQuery extends Job {
             Logger.t(TAG).d("");
         }
 
+        inject();
+
         try {
             execute();
             mSuccess = true;
@@ -85,6 +90,20 @@ public abstract class AbstractQuery extends Job {
     @Override
     protected int getRetryLimit() {
         return 1;
+    }
+    //endregion
+
+    //region Protected helper method
+    protected <T> boolean isCached(@NonNull final Response<T> poResponse) {
+        if (poResponse.isSuccessful() &&
+                (
+                        (poResponse.raw().networkResponse() != null && poResponse.raw().networkResponse().code() == HttpURLConnection.HTTP_NOT_MODIFIED)
+                                ||
+                                (poResponse.raw().networkResponse() == null && poResponse.raw().cacheResponse() != null))
+                ) {
+            return true;
+        }
+        return false;
     }
     //endregion
 

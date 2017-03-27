@@ -2490,6 +2490,8 @@ Finally, when running the `gradle check` command at the project root level, it a
 	* <https://blog.gouline.net/2015/05/04/dagger-2-even-sharper-less-square/>
 	* <http://code.tutsplus.com/tutorials/dependency-injection-with-dagger-2-on-android--cms-23345>
 	* <https://www.future-processing.pl/blog/dependency-injection-with-dagger-2/>
+* Networking
+    * <https://android.jlelse.eu/reducing-your-networking-footprint-with-okhttp-etags-and-if-modified-since-b598b8dd81a1#.lcz0zuj3y>
 * Retrolambda
 	* <http://www.vogella.com/tutorials/Retrolambda/article.html>
 * RxJava

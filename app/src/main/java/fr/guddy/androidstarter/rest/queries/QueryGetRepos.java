@@ -1,9 +1,5 @@
 package fr.guddy.androidstarter.rest.queries;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
-import com.birbit.android.jobqueue.RetryConstraint;
 import com.j256.ormlite.dao.Dao;
 import com.mobandme.android.transformer.Transformer;
 import com.orhanobut.logger.Logger;
@@ -65,10 +61,14 @@ public class QueryGetRepos extends AbstractQuery {
 
     @Override
     protected void execute() throws Exception {
-        inject();
-
         final Call<List<DTORepo>> loCall = gitHubService.listRepos(user);
         final Response<List<DTORepo>> loExecute = loCall.execute();
+
+        if (isCached(loExecute)) {
+            // not modified, no need to do anything
+            return;
+        }
+
         results = loExecute.body();
 
         final int liDeleted = daoRepo.deleteBuilder().delete();
