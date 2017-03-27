@@ -3,7 +3,6 @@ package fr.guddy.androidstarter.tests.rest;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.test.InstrumentationRegistry;
-import android.test.suitebuilder.annotation.LargeTest;
 
 import com.github.polok.localify.LocalifyClient;
 import com.squareup.otto.Subscribe;
@@ -100,7 +99,7 @@ public class TestREST {
             } catch (@NonNull final Exception loException) {
                 loException.printStackTrace();
             }
-            loGitHubService = mModuleRest.provideGithubService(mModuleRest.provideOkHttpClient(mModuleEnvironment.provideEnvironment()));
+            loGitHubService = mModuleRest.provideGithubService(mModuleRest.provideOkHttpClient(mModuleEnvironment.provideEnvironment(), mContextTarget));
         }
 
         Response<List<DTORepo>> loResponseWithOneRepo;
